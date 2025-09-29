@@ -9,9 +9,14 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@types/curtainsjs": "^8.1.3",
+    "curtainjs": "^1.0.2",
+    "curtainsjs": "^8.1.6",
+    "gsap": "^3.13.0",
+    "next": "15.5.3",
+    "ogl": "^1.0.11",
     "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "next": "15.5.3"
+    "react-dom": "19.1.0"
   },
   "devDependencies": {
     "typescript": "^5",
