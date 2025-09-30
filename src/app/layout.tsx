@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist } from "next/font/google";
+import { VT323 } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 import CrtEffect from './components/CrtEffect'; // Import CrtEffect
@@ -9,9 +10,10 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
+const vt323 = VT323({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -27,7 +29,7 @@ export default function RootLayout({
   return (
     <html>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${vt323.variable} antialiased`}
       >
         <CrtEffect> {/* Wrap children with CrtEffect */}
           <Providers>{children}</Providers>
