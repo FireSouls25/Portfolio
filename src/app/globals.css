@@ -4,11 +4,16 @@
     --background: #000000;
     --foreground: #00FF41;
     --card: #0a0a0a;
+    --main-100: hsl(120, 100%, 55%); /* #19FF19 al 100% */
+    --main-85: hsla(120, 100%, 55%, 0.85); /* #19FF19 al 85% */
+    --main-70: hsla(120, 100%, 55%, 0.7); /* #19FF19 al 70% */
 }
 
 .dark {
     --background: #000000;
-    --foreground: #00FF41;
+    --main: hsl(120, 100%, 55%); /* #19FF19 al 100% */
+    --submain: hsla(120, 100%, 55%, 0.85); /* #19FF19 al 85% */
+    --submain-70: hsla(120, 100%, 55%, 0.7); /* #19FF19 al 70% */
     --card: #0a0a0a;
 }
 

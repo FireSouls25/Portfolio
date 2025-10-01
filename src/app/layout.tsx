@@ -3,7 +3,7 @@ import { Geist } from "next/font/google";
 import { VT323 } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
-import CrtEffect from './components/CrtEffect'; // Import CrtEffect
+import CrtEffect from './components/CrtEffect'; 
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

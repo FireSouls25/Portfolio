@@ -30,7 +30,7 @@ const translations: Translations = {
     name: "David Emmanuel Castillo Florez",
     help: "Escribe 'help' o presiona F1 para ver los comandos disponibles",
     navigate: "Navega a través de las páginas con:",
-    pages: ["SobreMi", "Proyectos", "Testimonios", "Educación", "Contacto"],
+    pages: ["AboutMe", "Projects", "Testimonies", "Education", "Contact"],
   },
 };
 
@@ -61,16 +61,16 @@ export default function Home() {
           scale={3}
           gridMul={[2, 1]}
           digitSize={1.2}
-          timeScale={1}
+          timeScale={0.5}
           pause={false}
           scanlineIntensity={0.5}
-          glitchAmount={0.1}
-          flickerAmount={0.1}
-          noiseAmp={0.2}
-          chromaticAberration={0.05}
-          dither={0.02}
+          glitchAmount={0.2}
+          flickerAmount={0.2}
+          noiseAmp={0.25}
+          chromaticAberration={0}
+          dither={0}
           curvature={0.1}
-          tint="#00FF41"
+          tint="#BBFF99"
           mouseReact={false}
           mouseStrength={0.5}
           pageLoadAnimation={false}
@@ -79,29 +79,66 @@ export default function Home() {
       </div>
       <div className={`w-full h-full flex flex-col justify-center text-left p-8 relative z-10 ${isMobile ? 'p-4' : 'p-12'}`}>
         <div className="mb-8">
-          <h1 className="text-6xl mb-4 text-foreground">
+          <h1 className="text-6xl mb-4">
             <TextType
               text={[t.welcome]}
-              typingSpeed={50}
+              typingSpeed={40}
               pauseDuration={2000}
               showCursor={false}
+              textColors={['hsl(120, 100%, 55%)']}
             />
           </h1>
-          <p className="text-xl mb-6">{t.name}</p>
-          <p className="text-xl mb-4">{t.help}</p>
-          <p className="text-xl mb-4">{t.navigate}</p>
+          <h2 className="text-xl mb-6">
+            <TextType
+              text={[t.name]}
+              typingSpeed={30}
+              pauseDuration={2000}
+              showCursor={false}
+              initialDelay={1300}
+              textColors={['hsla(120, 100%, 55%, 0.85)']}
+            />
+            </h2>
+          <h3 className="text-xl mb-4">
+            <TextType
+              text={[t.help]}
+              typingSpeed={30}
+              pauseDuration={2000}
+              showCursor={false}
+              initialDelay={2300}
+              textColors={['#00FF41']}
+            />
+            </h3>
+          <h3 className="text-xl mb-4">
+            <TextType
+              text={[t.navigate]}
+              typingSpeed={30}
+              pauseDuration={2000}
+              showCursor={false}
+              initialDelay={3800}
+              textColors={['#00FF41']}
+            />
+          </h3>
           <ul className="list-none text-xl mb-6">
-            {t.pages.map((page) => (
-              <li key={page} className="mb-2">
-                <a href="#" className="hover:underline">{page}</a>
-              </li>
-            ))}
-          </ul>
+              {t.pages.map((page) => ((
+                  <li key={page} className="mb-2">
+                    <a href="#" className="hover:underline">
+                      <TextType
+                        text={[page]}
+                        typingSpeed={40}
+                        pauseDuration={2000}
+                        showCursor={false}
+                        initialDelay={5200}
+                        textColors={['hsla(120, 100%, 55%, 0.7)']}
+                      />
+                    </a>
+                  </li>
+                )
+              ))}
+            </ul>
         </div>
-        <div className="flex-grow"></div>
         {error && <div className="text-xl mt-2">{error}</div>}
-        <form onSubmit={handleCommand} className="mt-2 flex items-center text-xl">
-          <span>~ &gt;</span>
+        <form onSubmit={handleCommand} className="mt-2 items-center text-xl">
+          <span>~ $</span>
           <input
             type="text"
             value={command}
