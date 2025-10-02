@@ -1,5 +1,5 @@
 
-export type Command = "theme light" | "theme dark" | "lang es" | "lang en" | "help";
+export type Command = "theme light" | "theme dark" | "lang es" | "lang en" | "help" | "home" | "aboutme" | "projects" | "testimonies" | "education" | "contact";
 
 interface CommandHelp {
   [key: string]: {
@@ -28,6 +28,30 @@ const commandHelp: CommandHelp = {
   "help": {
     en: "Shows a list of available commands.",
     es: "Muestra una lista de los comandos disponibles.",
+  },
+  "home": {
+    en: "Navigates to the home page.",
+    es: "Navega a la página de inicio.",
+  },
+  "aboutme": {
+    en: "Navigates to the About Me page.",
+    es: "Navega a la página Sobre Mí.",
+  },
+  "projects": {
+    en: "Navigates to the Projects page.",
+    es: "Navega a la página de Proyectos.",
+  },
+  "testimonies": {
+    en: "Navigates to the Testimonies page.",
+    es: "Navega a la página de Testimonios.",
+  },
+  "education": {
+    en: "Navigates to the Education page.",
+    es: "Navega a la página de Educación.",
+  },
+  "contact": {
+    en: "Navigates to the Contact page.",
+    es: "Navega a la página de Contacto.",
   },
 };
 

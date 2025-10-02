@@ -10,10 +10,8 @@
   },
   "dependencies": {
     "@types/curtainsjs": "^8.1.3",
-    "curtains": "^2.0.2",
     "curtainsjs": "^8.1.6",
     "gsap": "^3.13.0",
-    "jquery.terminal": "^2.45.2",
     "next": "15.5.3",
     "ogl": "^1.0.11",
     "react": "19.1.0",

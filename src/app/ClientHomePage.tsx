@@ -2,7 +2,12 @@
 
 import TextType from './TextType';
 import FaultyTerminal from './FaultyTerminal';
-import { useState } from 'react';
+import { useState, useMemo, useEffect } from 'react';
+import AboutMe from './pages/AboutMe';
+import Projects from './pages/Projects';
+import Testimonies from './pages/Testimonies';
+import Education from './pages/Education';
+import Contact from './pages/Contact';
 import { useThemeLanguage } from './context/ThemeLanguageContext';
 import { useMediaQuery } from '@/app/hooks/useMediaQuery';
 import { getHelp } from './commands';
@@ -41,8 +46,30 @@ export default function Home() {
   const [command, setCommand] = useState<string>('');
   const [output, setOutput] = useState<string[]>([]);
   const [error, setError] = useState<string>('');
+  const [currentPage, setCurrentPage] = useState<string>('home');
   
-  const t = translations[language] || translations.en;
+  const t = useMemo(() => translations[language] || translations.en, [language]);
+
+  const memoizedWelcomeText = useMemo(() => [t.welcome], [t.welcome]);
+  const memoizedNameText = useMemo(() => [t.name], [t.name]);
+  const memoizedHelpText = useMemo(() => [t.help], [t.help]);
+  const memoizedNavigateText = useMemo(() => [t.navigate], [t.navigate]);
+  const memoizedPages = useMemo(() => t.pages, [t.pages]);
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'F1') {
+        event.preventDefault();
+        setOutput(getHelp(language));
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [language]);
 
   const handleCommand = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -72,6 +99,30 @@ export default function Home() {
         setOutput([]);
         setError('');
         break;
+      case 'home':
+        setCurrentPage('home');
+        setOutput([]);
+        break;
+      case 'aboutme':
+        setCurrentPage('aboutme');
+        setOutput([]);
+        break;
+      case 'projects':
+        setCurrentPage('projects');
+        setOutput([]);
+        break;
+      case 'testimonies':
+        setCurrentPage('testimonies');
+        setOutput([]);
+        break;
+      case 'education':
+        setCurrentPage('education');
+        setOutput([]);
+        break;
+      case 'contact':
+        setCurrentPage('contact');
+        setOutput([]);
+        break;
       default:
         setError(`command not found: ${command}`);
         setOutput([]);
@@ -90,6 +141,84 @@ export default function Home() {
       tint: "#000000",
       brightness: 1.5,
     };
+
+  const renderPageContent = () => {
+    switch (currentPage) {
+      case 'home':
+        return (
+          <>
+            <h1 className="text-6xl mb-4">
+              <TextType
+                text={memoizedWelcomeText}
+                typingSpeed={40}
+                pauseDuration={2000}
+                showCursor={false}
+                textColors={['hsl(120, 100%, 55%)']}
+              />
+            </h1>
+            <h2 className="text-xl mb-6">
+              <TextType
+                text={memoizedNameText}
+                typingSpeed={30}
+                pauseDuration={2000}
+                showCursor={false}
+                initialDelay={1300}
+                textColors={['hsla(120, 100%, 55%, 0.85)']}
+              />
+              </h2>
+            <h3 className="text-xl mb-4">
+              <TextType
+                text={memoizedHelpText}
+                typingSpeed={30}
+                pauseDuration={2000}
+                showCursor={false}
+                initialDelay={2300}
+                textColors={['#00FF41']}
+              />
+              </h3>
+            <h3 className="text-xl mb-4">
+              <TextType
+                text={memoizedNavigateText}
+                typingSpeed={30}
+                pauseDuration={2000}
+                showCursor={false}
+                initialDelay={3800}
+                textColors={['#00FF41']}
+              />
+            </h3>
+            <ul className="list-none text-xl mb-6">
+                {memoizedPages.map((page) => ((
+                    <li key={page} className="mb-2">
+                      <a href="#" className="hover:underline">
+                        <TextType
+                          text={[page]}
+                          typingSpeed={40}
+                          pauseDuration={2000}
+                          showCursor={false}
+                          initialDelay={5200}
+                          textColors={['hsla(120, 100%, 55%, 0.7)']}
+                        />
+                      </a>
+                    </li>
+                  )
+                ))}
+              </ul>
+          </>
+        );
+      case 'aboutme':
+        return <AboutMe />;
+      case 'projects':
+        return <Projects />;
+      case 'testimonies':
+        return <Testimonies />;
+      case 'education':
+        return <Education />;
+      case 'contact':
+        return <Contact />;
+      default:
+        return null;
+    }
+  };
 
   return (
     <div className="min-h-screen w-full bg-background text-foreground font-mono flex items-center justify-center relative overflow-hidden p-4">
@@ -115,62 +244,7 @@ export default function Home() {
       </div>
       <div className={`w-full h-full flex flex-col justify-center text-left p-8 relative z-10 ${isMobile ? 'p-4' : 'p-12'}`}>
         <div className="mb-8">
-          <h1 className="text-6xl mb-4">
-            <TextType
-              text={[t.welcome]}
-              typingSpeed={40}
-              pauseDuration={2000}
-              showCursor={false}
-              textColors={['hsl(120, 100%, 55%)']}
-            />
-          </h1>
-          <h2 className="text-xl mb-6">
-            <TextType
-              text={[t.name]}
-              typingSpeed={30}
-              pauseDuration={2000}
-              showCursor={false}
-              initialDelay={1300}
-              textColors={['hsla(120, 100%, 55%, 0.85)']}
-            />
-            </h2>
-          <h3 className="text-xl mb-4">
-            <TextType
-              text={[t.help]}
-              typingSpeed={30}
-              pauseDuration={2000}
-              showCursor={false}
-              initialDelay={2300}
-              textColors={['#00FF41']}
-            />
-            </h3>
-          <h3 className="text-xl mb-4">
-            <TextType
-              text={[t.navigate]}
-              typingSpeed={30}
-              pauseDuration={2000}
-              showCursor={false}
-              initialDelay={3800}
-              textColors={['#00FF41']}
-            />
-          </h3>
-          <ul className="list-none text-xl mb-6">
-              {t.pages.map((page) => ((
-                  <li key={page} className="mb-2">
-                    <a href="#" className="hover:underline">
-                      <TextType
-                        text={[page]}
-                        typingSpeed={40}
-                        pauseDuration={2000}
-                        showCursor={false}
-                        initialDelay={5200}
-                        textColors={['hsla(120, 100%, 55%, 0.7)']}
-                      />
-                    </a>
-                  </li>
-                )
-              ))}
-            </ul>
+          {renderPageContent()}
         </div>
         {output.length > 0 && (
           <div className="text-xl mt-2">
