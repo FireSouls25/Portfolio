@@ -11,10 +11,20 @@
 
 .dark {
     --background: #000000;
+    --foreground: #00FF41;
     --main: hsl(120, 100%, 55%); /* #19FF19 al 100% */
     --submain: hsla(120, 100%, 55%, 0.85); /* #19FF19 al 85% */
     --submain-70: hsla(120, 100%, 55%, 0.7); /* #19FF19 al 70% */
     --card: #0a0a0a;
+}
+
+.light {
+    --background: #FFFFFF;
+    --foreground: #000000;
+    --main: hsl(0, 0%, 0%);
+    --submain: hsla(0, 0%, 0%, 0.85);
+    --submain-70: hsla(0, 0%, 0%, 0.7);
+    --card: #f0f0f0;
 }
 
 body {

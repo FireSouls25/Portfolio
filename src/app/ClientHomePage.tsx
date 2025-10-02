@@ -5,6 +5,7 @@ import FaultyTerminal from './FaultyTerminal';
 import { useState } from 'react';
 import { useThemeLanguage } from './context/ThemeLanguageContext';
 import { useMediaQuery } from '@/app/hooks/useMediaQuery';
+import { getHelp } from './commands';
 
 // Define the shape of the translations object
 interface Translations {
@@ -35,24 +36,60 @@ const translations: Translations = {
 };
 
 export default function Home() {
-  const { language } = useThemeLanguage();
+  const { theme, language, setTheme, setLanguage } = useThemeLanguage();
   const isMobile = useMediaQuery('(max-width: 768px)');
   const [command, setCommand] = useState<string>('');
+  const [output, setOutput] = useState<string[]>([]);
   const [error, setError] = useState<string>('');
   
   const t = translations[language] || translations.en;
 
   const handleCommand = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
-    if (command.trim().toLowerCase() === 'clear') {
-      setError('');
-    } else {
-      setError(`command not found: ${command}`);
+    const cmd = command.trim().toLowerCase();
+
+    switch (cmd) {
+      case 'theme light':
+        setTheme('light');
+        setOutput([]);
+        break;
+      case 'theme dark':
+        setTheme('dark');
+        setOutput([]);
+        break;
+      case 'lang es':
+        setLanguage('es');
+        setOutput([]);
+        break;
+      case 'lang en':
+        setLanguage('en');
+        setOutput([]);
+        break;
+      case 'help':
+        setOutput(getHelp(language));
+        break;
+      case 'clear':
+        setOutput([]);
+        setError('');
+        break;
+      default:
+        setError(`command not found: ${command}`);
+        setOutput([]);
+        break;
     }
     
     setCommand('');
   };
+
+  const faultyTerminalProps = theme === 'dark' 
+  ? {
+      tint: "#BBFF99",
+      brightness: 0.8,
+    }
+  : {
+      tint: "#000000",
+      brightness: 1.5,
+    };
 
   return (
     <div className="min-h-screen w-full bg-background text-foreground font-mono flex items-center justify-center relative overflow-hidden p-4">
@@ -70,11 +107,10 @@ export default function Home() {
           chromaticAberration={0}
           dither={0}
           curvature={0.1}
-          tint="#BBFF99"
           mouseReact={false}
           mouseStrength={0.5}
           pageLoadAnimation={false}
-          brightness={0.8}
+          {...faultyTerminalProps}
         />
       </div>
       <div className={`w-full h-full flex flex-col justify-center text-left p-8 relative z-10 ${isMobile ? 'p-4' : 'p-12'}`}>
@@ -136,6 +172,13 @@ export default function Home() {
               ))}
             </ul>
         </div>
+        {output.length > 0 && (
+          <div className="text-xl mt-2">
+            {output.map((line, index) => (
+              <div key={index}>{line}</div>
+            ))}
+          </div>
+        )}
         {error && <div className="text-xl mt-2">{error}</div>}
         <form onSubmit={handleCommand} className="mt-2 items-center text-xl">
           <span>~ $</span>
