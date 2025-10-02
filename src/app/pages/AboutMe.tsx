@@ -9,13 +9,13 @@ const AboutMe: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div>
           <p className="text-xl mb-4">
-            I'm a dedicated developer with experience in web development, bringing creative and
+            I&aposm a dedicated developer with experience in web development, bringing creative and
             functional designs to life with a focus on responsive layouts and smooth user
             experiences.
           </p>
           <p className="text-xl mb-4">
             I also have experience working on backend with Spring Boot and Django. Over the
-            years, I've tuned my skills in problem-solving and collaboration, working on
+            years, I&aposve tuned my skills in problem-solving and collaboration, working on
             diverse projects.
           </p>
           <p className="text-xl mb-4">
