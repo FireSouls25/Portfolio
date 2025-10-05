@@ -150,7 +150,7 @@ export default function Home() {
             <h1 className="text-6xl mb-4">
               <TextType
                 text={memoizedWelcomeText}
-                typingSpeed={40}
+                typingSpeed={20}
                 pauseDuration={2000}
                 showCursor={false}
                 textColors={['hsl(120, 100%, 55%)']}
@@ -159,30 +159,30 @@ export default function Home() {
             <h2 className="text-xl mb-6">
               <TextType
                 text={memoizedNameText}
-                typingSpeed={30}
+                typingSpeed={10}
                 pauseDuration={2000}
                 showCursor={false}
-                initialDelay={1300}
+                initialDelay={700}
                 textColors={['hsla(120, 100%, 55%, 0.85)']}
               />
               </h2>
             <h3 className="text-xl mb-4">
               <TextType
                 text={memoizedHelpText}
-                typingSpeed={30}
+                typingSpeed={10}
                 pauseDuration={2000}
                 showCursor={false}
-                initialDelay={2300}
+                initialDelay={1400}
                 textColors={['#00FF41']}
               />
               </h3>
             <h3 className="text-xl mb-4">
               <TextType
                 text={memoizedNavigateText}
-                typingSpeed={30}
+                typingSpeed={10}
                 pauseDuration={2000}
                 showCursor={false}
-                initialDelay={3800}
+                initialDelay={1400}
                 textColors={['#00FF41']}
               />
             </h3>
@@ -192,10 +192,10 @@ export default function Home() {
                       <a href="#" className="hover:underline">
                         <TextType
                           text={[page]}
-                          typingSpeed={40}
+                          typingSpeed={20}
                           pauseDuration={2000}
                           showCursor={false}
-                          initialDelay={5200}
+                          initialDelay={2200}
                           textColors={['hsla(120, 100%, 55%, 0.7)']}
                         />
                       </a>

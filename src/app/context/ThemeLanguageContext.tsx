@@ -29,6 +29,11 @@ export const ThemeLanguageProvider = ({ children }: { children: ReactNode }) => 
     }
     if (storedLanguage) {
       setLanguageState(storedLanguage);
+    } else {
+      const browserLanguage = navigator.language.split('-')[0];
+      if (browserLanguage === 'es') {
+        setLanguageState('es');
+      }
     }
   }, []);
 
