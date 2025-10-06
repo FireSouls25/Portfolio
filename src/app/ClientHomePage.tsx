@@ -173,7 +173,7 @@ export default function Home() {
                 pauseDuration={2000}
                 showCursor={false}
                 initialDelay={1400}
-                textColors={['#00FF41']}
+                textColors={['hsl(120, 100%, 55%)']}
               />
               </h3>
             <h3 className="text-xl mb-4">
@@ -183,7 +183,7 @@ export default function Home() {
                 pauseDuration={2000}
                 showCursor={false}
                 initialDelay={1400}
-                textColors={['#00FF41']}
+                textColors={['hsl(120, 100%, 55%)']}
               />
             </h3>
             <ul className="list-none text-xl mb-6">
@@ -250,7 +250,16 @@ export default function Home() {
           {output.length > 0 && (
             <div className="text-xl mt-2">
               {output.map((line, index) => (
-                <div key={index}>{line}</div>
+                <div key={index}>
+                  <TextType
+                    text={[line]}
+                    typingSpeed={10}
+                    pauseDuration={2000}
+                    showCursor={false}
+                    initialDelay={index * 100}
+                    textColors={['hsla(120, 100%, 55%, 0.7)']}
+                  />
+                </div>
               ))}
             </div>
           )}
