@@ -221,7 +221,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-background text-foreground font-mono flex items-center justify-center relative overflow-hidden p-4">
+    <div className="h-screen w-full bg-background text-foreground font-mono flex items-center justify-center relative overflow-hidden p-4">
       <div className="fixed inset-0 z-0">
         <FaultyTerminal
           scale={3}
