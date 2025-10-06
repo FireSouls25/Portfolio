@@ -29,7 +29,7 @@ const AboutMe: React.FC = () => {
   const memoizedP3 = useMemo(() => [t.p3], [t]);
 
   return (
-    <div className="text-foreground font-mono p-4">
+    <div className="text-foreground font-mono p-4 pt-16">
       <h1 className="text-6xl mb-4 text-main-100">
         <TextType text={memoizedTitle} 
         typingSpeed={60} 

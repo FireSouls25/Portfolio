@@ -26,7 +26,7 @@ const Education: React.FC = () => {
   const memoizedDescription = useMemo(() => [t.description], [t]);
 
   return (
-    <div className="text-foreground font-mono p-4">
+    <div className="text-foreground font-mono p-4 pt-16">
       <h1 className="text-6xl mb-4 text-main-100">
         <TextType text={memoizedTitle} typingSpeed={20} pauseDuration={2000} showCursor={false} textColors={['hsl(120, 100%, 55%)']} />
       </h1>

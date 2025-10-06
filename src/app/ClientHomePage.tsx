@@ -242,28 +242,30 @@ export default function Home() {
           {...faultyTerminalProps}
         />
       </div>
-      <div className={`w-full h-full flex flex-col justify-center text-left p-8 relative z-10 ${isMobile ? 'p-4' : 'p-12'}`}>
-        <div className="mb-8">
+      <div className={`w-full h-full flex flex-col text-left p-8 relative z-10 ${isMobile ? 'p-4' : 'p-12'}`}>
+        <div className="flex-grow overflow-y-auto">
           {renderPageContent()}
         </div>
-        {output.length > 0 && (
-          <div className="text-xl mt-2">
-            {output.map((line, index) => (
-              <div key={index}>{line}</div>
-            ))}
-          </div>
-        )}
-        {error && <div className="text-xl mt-2">{error}</div>}
-        <form onSubmit={handleCommand} className="mt-2 items-center text-xl">
-          <span>~ $</span>
-          <input
-            type="text"
-            value={command}
-            onChange={(e) => setCommand(e.target.value)}
-            className="bg-transparent border-none outline-none w-full ml-2"
-            autoFocus
-          />
-        </form>
+        <div className="mt-auto">
+          {output.length > 0 && (
+            <div className="text-xl mt-2">
+              {output.map((line, index) => (
+                <div key={index}>{line}</div>
+              ))}
+            </div>
+          )}
+          {error && <div className="text-xl mt-2">{error}</div>}
+          <form onSubmit={handleCommand} className="mt-2 flex items-center text-xl">
+            <span>~ $</span>
+            <input
+              type="text"
+              value={command}
+              onChange={(e) => setCommand(e.target.value)}
+              className="bg-transparent border-none outline-none w-full ml-2"
+              autoFocus
+            />
+          </form>
+        </div>
       </div>
     </div>
   );

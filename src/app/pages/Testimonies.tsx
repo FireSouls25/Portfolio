@@ -44,42 +44,42 @@ const Testimonies: React.FC = () => {
   const memoizedAuthor4 = useMemo(() => [t.author4], [t]);
 
   return (
-    <div className="text-foreground font-mono p-4">
+    <div className="text-foreground font-mono p-4 pt-16">
       <h1 className="text-6xl mb-4 text-main-100">
         <TextType text={memoizedTitle} typingSpeed={30} pauseDuration={2000} showCursor={false} textColors={['hsl(120, 100%, 55%)']}/>
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div>
-          <p className="text-xl mb-4">
+          <span className="text-xl mb-4">
             <TextType text={memoizedTestimony1} typingSpeed={10} pauseDuration={2000} showCursor={false} textColors={['hsl(120, 100%, 55%)']} initialDelay={500}/>
-          </p>
-          <p className="text-xl mb-4 text-main-70">
+          </span>
+          <span className="text-xl mb-4 text-main-70">
             <TextType text={memoizedAuthor1} typingSpeed={20} pauseDuration={2000} showCursor={false} textColors={['hsl(120, 100%, 55%)']} initialDelay={1800}/>
-          </p>
+          </span>
         </div>
         <div>
-          <p className="text-xl mb-4">
+          <span className="text-xl mb-4">
             <TextType text={memoizedTestimony2} typingSpeed={10} pauseDuration={2000} showCursor={false} textColors={['hsl(120, 100%, 55%)']} initialDelay={1200}/>
-          </p>
-          <p className="text-xl mb-4 text-main-70">
+          </span>
+          <span className="text-xl mb-4 text-main-70">
             <TextType text={memoizedAuthor2} typingSpeed={20} pauseDuration={2000} showCursor={false} textColors={['hsl(120, 100%, 55%)']} initialDelay={2500}/>
-          </p>
+          </span>
         </div>
         <div>
-          <p className="text-xl mb-4">
+          <span className="text-xl mb-4">
             <TextType text={memoizedTestimony3} typingSpeed={10} pauseDuration={2000} showCursor={false} textColors={['hsl(120, 100%, 55%)']} initialDelay={2200}/>
-          </p>
-          <p className="text-xl mb-4 text-main-70">
+          </span>
+          <span className="text-xl mb-4 text-main-70">
             <TextType text={memoizedAuthor3} typingSpeed={20} pauseDuration={2000} showCursor={false} textColors={['hsl(120, 100%, 55%)']} initialDelay={3800}/>
-          </p>
+          </span>
         </div>
         <div>
-          <p className="text-xl mb-4">
+          <span className="text-xl mb-4">
             <TextType text={memoizedTestimony4} typingSpeed={10} pauseDuration={2000} showCursor={false} textColors={['hsl(120, 100%, 55%)']} initialDelay={3200}/>
-          </p>
-          <p className="text-xl mb-4 text-main-70">
+          </span>
+          <span className="text-xl mb-4 text-main-70">
             <TextType text={memoizedAuthor4} typingSpeed={20} pauseDuration={2000} showCursor={false} textColors={['hsl(120, 100%, 55%)']} initialDelay={4200}/>
-          </p>
+          </span>
         </div>
       </div>
     </div>
