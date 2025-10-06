@@ -60,7 +60,7 @@ export default function Home() {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'F1') {
         event.preventDefault();
-        setOutput(getHelp(language));
+        setOutput(prevOutput => (prevOutput.length > 0 ? [] : getHelp(language)));
       }
     };
 
