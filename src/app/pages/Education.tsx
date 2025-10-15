@@ -4,22 +4,9 @@ import React, { useMemo } from 'react';
 import { useThemeLanguage } from '../context/ThemeLanguageContext';
 import TextType from '../TextType';
 
-const translations = {
-  en: {
-    title: "Education",
-    university: "Universidad Cooperativa de Colombia",
-    description: "I am currently pursuing a degree in Software Engineering at Universidad Cooperativa de Colombia, located in Pasto, Nariño, Colombia. This program has equipped me with a solid foundation in programming, software design, and problem-solving, while also offering opportunities to work on real-world projects that enhance my technical and collaborative skills.",
-  },
-  es: {
-    title: "Educación",
-    university: "Universidad Cooperativa de Colombia",
-    description: "Actualmente estoy cursando la carrera de Ingeniería de Software en la Universidad Cooperativa de Colombia, ubicada en Pasto, Nariño, Colombia. Este programa me ha proporcionado una base sólida en programación, diseño de software y resolución de problemas, al mismo tiempo que me ofrece oportunidades para trabajar en proyectos del mundo real que mejoran mis habilidades técnicas y de colaboración.",
-  },
-};
-
 const Education: React.FC = () => {
-  const { language } = useThemeLanguage();
-  const t = useMemo(() => translations[language] || translations.en, [language]);
+  const { language, translations } = useThemeLanguage();
+  const t = useMemo(() => translations.education[language] || translations.education.en, [language, translations]);
 
   const memoizedTitle = useMemo(() => [t.title], [t]);
   const memoizedUniversity = useMemo(() => [t.university], [t]);

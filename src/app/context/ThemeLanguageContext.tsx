@@ -3,12 +3,15 @@
 
 import React, { createContext, useState, useContext, ReactNode, useEffect } from 'react';
 
+import translations from '../translations.json';
+
 type Theme = 'light' | 'dark';
 type Language = 'en' | 'es';
 
 interface ThemeLanguageContextType {
   theme: Theme;
   language: Language;
+  translations: any;
   setTheme: (theme: Theme) => void;
   setLanguage: (language: Language) => void;
 }
@@ -59,7 +62,7 @@ export const ThemeLanguageProvider = ({ children }: { children: ReactNode }) => 
   };
 
   return (
-    <ThemeLanguageContext.Provider value={{ theme, language, setTheme, setLanguage }}>
+    <ThemeLanguageContext.Provider value={{ theme, language, translations, setTheme, setLanguage }}>
       {children}
     </ThemeLanguageContext.Provider>
   );

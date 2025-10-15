@@ -4,30 +4,9 @@ import React, { useMemo } from 'react';
 import { useThemeLanguage } from '../context/ThemeLanguageContext';
 import TextType from '../TextType';
 
-const translations = {
-  en: {
-    title: "Projects",
-    project1Title: "3D Graphic Calculator",
-    project1Desc: "A web-based 3D graphic calculator that visualizes functions in three dimensions. It also features built-in tools to compute derivatives and integrals.",
-    project2Title: "News Dashboard Interface",
-    project2Desc: "A dynamic news dashboard using Tailwind CSS, showcasing article cards, category filters, and user profiles with interactive elements, optimized for a clean and engaging layout.",
-    project3Title: "Tailwind Settings Interface",
-    project3Desc: "A sleek settings panel built with Tailwind CSS, featuring customizable themes, accent color options, and accessibility toggles, designed for a user-friendly experience.",
-  },
-  es: {
-    title: "Proyectos",
-    project1Title: "Calculadora Gráfica 3D",
-    project1Desc: "Una calculadora gráfica 3D basada en la web que visualiza funciones en tres dimensiones. También cuenta con herramientas integradas para calcular derivadas e integrales.",
-    project2Title: "Interfaz de Panel de Noticias",
-    project2Desc: "Un panel de noticias dinámico que utiliza Tailwind CSS, mostrando tarjetas de artículos, filtros de categoría y perfiles de usuario con elementos interactivos, optimizado para un diseño limpio y atractivo.",
-    project3Title: "Interfaz de Configuración de Tailwind",
-    project3Desc: "Un elegante panel de configuración creado con Tailwind CSS, con temas personalizables, opciones de color de acento y conmutadores de accesibilidad, diseñado para una experiencia de usuario amigable.",
-  },
-};
-
 const Projects: React.FC = () => {
-  const { language } = useThemeLanguage();
-  const t = useMemo(() => translations[language] || translations.en, [language]);
+  const { language, translations } = useThemeLanguage();
+  const t = useMemo(() => translations.projects[language] || translations.projects.en, [language, translations]);
 
   const memoizedTitle = useMemo(() => [t.title], [t]);
   const memoizedProject1Title = useMemo(() => [t.project1Title], [t]);

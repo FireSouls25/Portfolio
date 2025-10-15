@@ -4,26 +4,9 @@ import React, { useMemo } from 'react';
 import { useThemeLanguage } from '../context/ThemeLanguageContext';
 import TextType from '../TextType';
 
-const translations = {
-  en: {
-    title: "Contact",
-    email: "Email: da.enmanuel@proton.me",
-    github: "Github: FireSouls25",
-    linkedin: "LinkedIn: None",
-    cv: "Download Curriculum",
-  },
-  es: {
-    title: "Contacto",
-    email: "Correo: da.enmanuel@proton.me",
-    github: "Github: FireSouls25",
-    linkedin: "LinkedIn: Ninguno",
-    cv: "Descargar Currículum",
-  },
-};
-
 const Contact: React.FC = () => {
-  const { language } = useThemeLanguage();
-  const t = useMemo(() => translations[language] || translations.en, [language]);
+  const { language, translations } = useThemeLanguage();
+  const t = useMemo(() => translations.contact[language] || translations.contact.en, [language, translations]);
 
   const memoizedTitle = useMemo(() => [t.title], [t]);
   const memoizedEmail = useMemo(() => [t.email], [t]);

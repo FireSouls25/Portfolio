@@ -4,34 +4,9 @@ import React, { useMemo } from 'react';
 import { useThemeLanguage } from '../context/ThemeLanguageContext';
 import TextType from '../TextType';
 
-const translations = {
-  en: {
-    title: "Testimonies",
-    testimony1: "Fusce sit amet tortor quis erat dapibus viverra. Mauris congue tempor lorem, vel tristique orci egestas ac.",
-    author1: "- tal",
-    testimony2: "Nunc et lacus ut nisl blandit sodales in ut diam. Etiam lobortis, orci ut semper cursus, diam tortor molestie dolor.",
-    author2: "- tal.2",
-    testimony3: "Vestibulum ut luctus augue. Sed orci enim, venenatis at dui vitae, dictum venenatis nisi. Vestibulum facilisis felis purus.",
-    author3: "- tal.3",
-    testimony4: "Donec viverra risus eu ex rutrum, in lobortis ex faucibus. Suspendisse at pharetra mauris.",
-    author4: "- tal.4",
-  },
-  es: {
-    title: "Testimonios",
-    testimony1: "Fusce sit amet tortor quis erat dapibus viverra. Mauris congue tempor lorem, vel tristique orci egestas ac.",
-    author1: "- tal",
-    testimony2: "Nunc et lacus ut nisl blandit sodales in ut diam. Etiam lobortis, orci ut semper cursus, diam tortor molestie dolor.",
-    author2: "- tal.2",
-    testimony3: "Vestibulum ut luctus augue. Sed orci enim, venenatis at dui vitae, dictum venenatis nisi. Vestibulum facilisis felis purus.",
-    author3: "- tal.3",
-    testimony4: "Donec viverra risus eu ex rutrum, in lobortis ex faucibus. Suspendisse at pharetra mauris.",
-    author4: "- tal.4",
-  },
-};
-
 const Testimonies: React.FC = () => {
-  const { language } = useThemeLanguage();
-  const t = useMemo(() => translations[language] || translations.en, [language]);
+  const { language, translations } = useThemeLanguage();
+  const t = useMemo(() => translations.testimonies[language] || translations.testimonies.en, [language, translations]);
 
   const memoizedTitle = useMemo(() => [t.title], [t]);
   const memoizedTestimony1 = useMemo(() => [t.testimony1], [t]);

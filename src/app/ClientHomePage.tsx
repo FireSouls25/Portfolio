@@ -12,43 +12,15 @@ import { useThemeLanguage } from './context/ThemeLanguageContext';
 import { useMediaQuery } from '@/app/hooks/useMediaQuery';
 import { getHelp } from './commands';
 
-// Define the shape of the translations object
-interface Translations {
-  [key: string]: {
-    welcome: string;
-    name: string;
-    help: string;
-    navigate: string;
-    pages: string[];
-  };
-}
-
-const translations: Translations = {
-  en: {
-    welcome: "Welcome to my Portfolio",
-    name: "David Emmanuel Castillo Florez",
-    help: "Type 'help' or press F1 for available commands",
-    navigate: "Navigate throught the pages with:",
-    pages: ["AboutMe", "Projects", "Testimonies", "Education", "Contact"],
-  },
-  es: {
-    welcome: "Bienvenido a mi Portafolio",
-    name: "David Emmanuel Castillo Florez",
-    help: "Escribe 'help' o presiona F1 para ver los comandos disponibles",
-    navigate: "Navega a través de las páginas con:",
-    pages: ["AboutMe", "Projects", "Testimonies", "Education", "Contact"],
-  },
-};
-
 export default function Home() {
-  const { theme, language, setTheme, setLanguage } = useThemeLanguage();
+  const { theme, language, translations, setTheme, setLanguage } = useThemeLanguage();
   const isMobile = useMediaQuery('(max-width: 768px)');
   const [command, setCommand] = useState<string>('');
   const [output, setOutput] = useState<string[]>([]);
   const [error, setError] = useState<string>('');
   const [currentPage, setCurrentPage] = useState<string>('home');
   
-  const t = useMemo(() => translations[language] || translations.en, [language]);
+  const t = useMemo(() => translations.home[language] || translations.home.en, [language, translations]);
 
   const memoizedWelcomeText = useMemo(() => [t.welcome], [t.welcome]);
   const memoizedNameText = useMemo(() => [t.name], [t.name]);
@@ -187,7 +159,7 @@ export default function Home() {
               />
             </h3>
             <ul className="list-none text-xl mb-6">
-                {memoizedPages.map((page) => ((
+                {memoizedPages.map((page: string) => ((
                     <li key={page} className="mb-2">
                       <a href="#" className="hover:underline">
                         <TextType

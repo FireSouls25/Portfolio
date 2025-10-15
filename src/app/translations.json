@@ -1,0 +1,104 @@
+{
+  "home": {
+    "en": {
+      "welcome": "Welcome to my Portfolio",
+      "name": "David Emmanuel Castillo Florez",
+      "help": "Type 'help' or press F1 for available commands",
+      "navigate": "Navigate through the pages with:",
+      "pages": ["AboutMe", "Projects", "Testimonies", "Education", "Contact"]
+    },
+    "es": {
+      "welcome": "Bienvenido a mi Portafolio",
+      "name": "David Emmanuel Castillo Florez",
+      "help": "Escribe 'help' o presiona F1 para ver los comandos disponibles",
+      "navigate": "Navega a través de las páginas con:",
+      "pages": ["AboutMe", "Projects", "Testimonies", "Education", "Contact"]
+    }
+  },
+  "aboutme": {
+    "en": {
+      "title": "About Me",
+      "p1": "I'm a dedicated developer with experience in web development, bringing creative and functional designs to life with a focus on responsive layouts and smooth user experiences.",
+      "p2": "I also have experience working on backend with Spring Boot and Django. Over the years, I've tuned my skills in problem-solving and collaboration, working on diverse projects.",
+      "p3": "My attention to detail and passion for clean code ensure that every project I undertake is both efficient and visually appealing."
+    },
+    "es": {
+      "title": "Sobre Mí",
+      "p1": "Soy un desarrollador dedicado con experiencia en desarrollo web, dando vida a diseños creativos y funcionales con un enfoque en diseños receptivos y experiencias de usuario fluidas.",
+      "p2": "También tengo experiencia trabajando en backend con Spring Boot y Django. A lo largo de los años, he afinado mis habilidades en la resolución de problemas y la colaboración, trabajando en diversos proyectos.",
+      "p3": "Mi atención al detalle y mi pasión por el código limpio aseguran que cada proyecto que emprendo sea eficiente y visualmente atractivo."
+    }
+  },
+  "projects": {
+    "en": {
+      "title": "Projects",
+      "project1Title": "3D Graphic Calculator",
+      "project1Desc": "A web-based 3D graphic calculator that visualizes functions in three dimensions. It also features built-in tools to compute derivatives and integrals.",
+      "project2Title": "News Dashboard Interface",
+      "project2Desc": "A dynamic news dashboard using Tailwind CSS, showcasing article cards, category filters, and user profiles with interactive elements, optimized for a clean and engaging layout.",
+      "project3Title": "Tailwind Settings Interface",
+      "project3Desc": "A sleek settings panel built with Tailwind CSS, featuring customizable themes, accent color options, and accessibility toggles, designed for a user-friendly experience."
+    },
+    "es": {
+      "title": "Proyectos",
+      "project1Title": "Calculadora Gráfica 3D",
+      "project1Desc": "Una calculadora gráfica 3D basada en la web que visualiza funciones en tres dimensiones. También cuenta con herramientas integradas para calcular derivadas e integrales.",
+      "project2Title": "Interfaz de Panel de Noticias",
+      "project2Desc": "Un panel de noticias dinámico que utiliza Tailwind CSS, mostrando tarjetas de artículos, filtros de categoría y perfiles de usuario con elementos interactivos, optimizado para un diseño limpio y atractivo.",
+      "project3Title": "Interfaz de Configuración de Tailwind",
+      "project3Desc": "Un elegante panel de configuración creado con Tailwind CSS, con temas personalizables, opciones de color de acento y conmutadores de accesibilidad, diseñado para una experiencia de usuario amigable."
+    }
+  },
+  "testimonies": {
+    "en": {
+      "title": "Testimonies",
+      "testimony1": "Fusce sit amet tortor quis erat dapibus viverra. Mauris congue tempor lorem, vel tristique orci egestas ac.",
+      "author1": "- tal",
+      "testimony2": "Nunc et lacus ut nisl blandit sodales in ut diam. Etiam lobortis, orci ut semper cursus, diam tortor molestie dolor.",
+      "author2": "- tal.2",
+      "testimony3": "Vestibulum ut luctus augue. Sed orci enim, venenatis at dui vitae, dictum venenatis nisi. Vestibulum facilisis felis purus.",
+      "author3": "- tal.3",
+      "testimony4": "Donec viverra risus eu ex rutrum, in lobortis ex faucibus. Suspendisse at pharetra mauris.",
+      "author4": "- tal.4"
+    },
+    "es": {
+      "title": "Testimonios",
+      "testimony1": "Fusce sit amet tortor quis erat dapibus viverra. Mauris congue tempor lorem, vel tristique orci egestas ac.",
+      "author1": "- tal",
+      "testimony2": "Nunc et lacus ut nisl blandit sodales in ut diam. Etiam lobortis, orci ut semper cursus, diam tortor molestie dolor.",
+      "author2": "- tal.2",
+      "testimony3": "Vestibulum ut luctus augue. Sed orci enim, venenatis at dui vitae, dictum venenatis nisi. Vestibulum facilisis felis purus.",
+      "author3": "- tal.3",
+      "testimony4": "Donec viverra risus eu ex rutrum, in lobortis ex faucibus. Suspendisse at pharetra mauris.",
+      "author4": "- tal.4"
+    }
+  },
+  "education": {
+    "en": {
+      "title": "Education",
+      "university": "Universidad Cooperativa de Colombia",
+      "description": "I am currently pursuing a degree in Software Engineering at Universidad Cooperativa de Colombia, located in Pasto, Nariño, Colombia. This program has equipped me with a solid foundation in programming, software design, and problem-solving, while also offering opportunities to work on real-world projects that enhance my technical and collaborative skills."
+    },
+    "es": {
+      "title": "Educación",
+      "university": "Universidad Cooperativa de Colombia",
+      "description": "Actualmente estoy cursando la carrera de Ingeniería de Software en la Universidad Cooperativa de Colombia, ubicada en Pasto, Nariño, Colombia. Este programa me ha proporcionado una base sólida en programación, diseño de software y resolución de problemas, al mismo tiempo que me ofrece oportunidades para trabajar en proyectos del mundo real que mejoran mis habilidades técnicas y de colaboración."
+    }
+  },
+  "contact": {
+    "en": {
+      "title": "Contact",
+      "email": "Email: da.enmanuel@proton.me",
+      "github": "Github: FireSouls25",
+      "linkedin": "LinkedIn: None",
+      "cv": "Download Curriculum"
+    },
+    "es": {
+      "title": "Contacto",
+      "email": "Correo: da.enmanuel@proton.me",
+      "github": "Github: FireSouls25",
+      "linkedin": "LinkedIn: Ninguno",
+      "cv": "Descargar Currículum"
+    }
+  }
+}
