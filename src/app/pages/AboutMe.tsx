@@ -23,8 +23,8 @@ const AboutMe: React.FC = () => {
         textColors={['hsl(120, 100%, 55%)']}
         />
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div>
+      <div className="flex flex-col gap-8">
+        <div className="flex flex-col">
           <span className="text-xl mb-4">
             <TextType text={memoizedP1} 
             typingSpeed={10} 
@@ -53,11 +53,11 @@ const AboutMe: React.FC = () => {
             />
           </span>
         </div>
-        <div className="grid grid-cols-2 gap-4">
-          <img src="/file.svg" alt="Profile 1" className="w-full h-auto object-cover rounded" />
-          <img src="/file.svg" alt="Profile 2" className="w-full h-auto object-cover rounded" />
-          <img src="/file.svg" alt="Profile 3" className="w-full h-auto object-cover rounded" />
-          <img src="/file.svg" alt="Profile 4" className="w-full h-auto object-cover rounded" />
+        <div className="grid grid-cols-4 gap-4 mt-8">
+          <img src="/images/aboutme/dog.webp" alt="Profile 1" className="w-100 h-100 object-cover rounded" />
+          <img src="/images/aboutme/me_working.webp" alt="Profile 2" className="w-100 h-100 object-cover rounded" />
+          <img src="/images/aboutme/me.webp" alt="Profile 3" className="w-100 h-100 object-cover rounded" />
+          <img src="/images/aboutme/working.webp" alt="Profile 4" className="w-100 h-100 object-cover rounded" />
         </div>
       </div>
     </div>

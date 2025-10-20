@@ -29,7 +29,7 @@ const Projects: React.FC = () => {
           <span className="text-lg mb-4">
             <TextType text={memoizedProject1Desc} typingSpeed={10} pauseDuration={2000} showCursor={false} textColors={['hsl(120, 100%, 55%)']} initialDelay={400}/>
           </span>
-          <img src="/file.svg" alt="3D Graphic Calculator" className="w-full h-auto object-cover rounded" />
+          <img src="/images/projects/3D_calculator.webp" alt="3D Graphic Calculator" className="w-full h-auto object-cover rounded" />
         </div>
         <div className="flex flex-col items-center text-center">
           <h2 className="text-2xl mb-2 text-main-85">
@@ -38,7 +38,7 @@ const Projects: React.FC = () => {
           <span className="text-lg mb-4">
             <TextType text={memoizedProject2Desc} typingSpeed={10} pauseDuration={2000} showCursor={false} textColors={['hsl(120, 100%, 55%)']} initialDelay={2200}/>
           </span>
-          <img src="/file.svg" alt="News Dashboard Interface" className="w-full h-auto object-cover rounded" />
+          <img src="/images/projects/project2.webp" alt="News Dashboard Interface" className="w-full h-auto object-cover rounded" />
         </div>
         <div className="flex flex-col items-center text-center">
           <h2 className="text-2xl mb-2 text-main-85">
@@ -47,7 +47,7 @@ const Projects: React.FC = () => {
           <span className="text-lg mb-4">
             <TextType text={memoizedProject3Desc} typingSpeed={10} pauseDuration={2000} showCursor={false} textColors={['hsl(120, 100%, 55%)']} initialDelay={4300}/>
           </span>
-          <img src="/file.svg" alt="Tailwind Settings Interface" className="w-full h-auto object-cover rounded" />
+          <img src="/images/projects/settings.webp" alt="Tailwind Settings Interface" className="w-full h-auto object-cover rounded" />
         </div>
       </div>
     </div>

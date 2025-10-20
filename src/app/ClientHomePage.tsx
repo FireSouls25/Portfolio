@@ -237,7 +237,10 @@ export default function Home() {
           )}
           {error && <div className="text-xl mt-2">{error}</div>}
           <form onSubmit={handleCommand} className="mt-2 flex items-center text-xl">
-            <span>~ $</span>
+            <ul>
+              <li>~</li>
+              <li>$</li>
+            </ul>
             <input
               type="text"
               value={command}

@@ -27,7 +27,7 @@ const Education: React.FC = () => {
           <h2 className="text-2xl mb-2 text-main-85">
             <TextType text={memoizedUniversity} typingSpeed={10} pauseDuration={2000} showCursor={false} textColors={['hsl(120, 100%, 55%)']} initialDelay={200}/>
           </h2>
-          <img src="/globe.svg" alt="Universidad Cooperativa de Colombia" className="w-48 h-48 object-contain" />
+          <img src="/images/education/ucc_logo.svg" alt="Universidad Cooperativa de Colombia" className="w-100 h-100 object-contain" />
         </div>
       </div>
     </div>

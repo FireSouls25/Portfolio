@@ -21,19 +21,19 @@ const Contact: React.FC = () => {
       </h1>
       <div className="flex flex-col space-y-4 text-xl">
         <span className="flex items-center">
-          <img src="/proton-mail-logo.svg" alt="Email" className="w-6 h-6 mr-2" />
+          <img src="/images/contacts/proton-mail-logo.svg" alt="Email" className="w-6 h-6 mr-2" />
           <TextType text={memoizedEmail} typingSpeed={30} pauseDuration={2000} showCursor={false} textColors={['hsl(120, 100%, 55%)']} />
         </span>
         <span className="flex items-center">
-          <img src="/github-logo.svg" alt="Github" className="w-6 h-6 mr-2" />
+          <img src="/images/contacts/github-logo.svg" alt="Github" className="w-6 h-6 mr-2" />
           <TextType text={memoizedGithub} typingSpeed={30} pauseDuration={2000} showCursor={false} textColors={['hsl(120, 100%, 55%)']} />
         </span>
         <span className="flex items-center">
-          <img src="/linkedin-logo.svg" alt="LinkedIn" className="w-6 h-6 mr-2" />
+          <img src="/images/contacts/linkedin-logo.svg" alt="LinkedIn" className="w-6 h-6 mr-2" />
           <TextType text={memoizedLinkedin} typingSpeed={30} pauseDuration={2000} showCursor={false} textColors={['hsl(120, 100%, 55%)']} />
         </span>
         <span className="flex items-center">
-          <img src="/file.svg" alt="Download CV" className="w-6 h-6 mr-2" />
+          <img src="/images/contacts/download-logo.svg" alt="Download CV" className="w-6 h-6 mr-2" />
           <TextType text={memoizedCv} typingSpeed={30} pauseDuration={2000} showCursor={false} textColors={['hsl(120, 100%, 55%)']} />
         </span>
       </div>

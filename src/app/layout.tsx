@@ -3,8 +3,6 @@ import { Geist } from "next/font/google";
 import { VT323 } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
-import CrtEffect from './components/CrtEffect'; 
-
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -27,13 +25,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html>
-      <body
-        className={`${geistSans.variable} ${vt323.variable} antialiased`}
-      >
-        <CrtEffect> {/* Wrap children with CrtEffect */}
-          <Providers>{children}</Providers>
-        </CrtEffect>
+    <html lang="en" className={`${geistSans.variable} ${vt323.variable}`}>
+      <body>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
