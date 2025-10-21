@@ -2,7 +2,7 @@
 
 import React, { useMemo } from 'react';
 import { useThemeLanguage } from '../context/ThemeLanguageContext';
-import TextType from '../TextType';
+import TextType from '../components/TextType';
 
 const Testimonies: React.FC = () => {
   const { language, translations } = useThemeLanguage();

@@ -1,7 +1,7 @@
 'use client';
 
-import TextType from './TextType';
-import FaultyTerminal from './FaultyTerminal';
+import TextType from './components/TextType';
+import FaultyTerminal from './components/FaultyTerminal';
 import { useState, useMemo, useEffect } from 'react';
 import AboutMe from './pages/AboutMe';
 import Projects from './pages/Projects';
