@@ -22,11 +22,11 @@ export default function Home() {
   
   const t = useMemo(() => translations.home[language] || translations.home.en, [language, translations]);
 
-  const memoizedWelcomeText = useMemo(() => [t.welcome], [t.welcome]);
-  const memoizedNameText = useMemo(() => [t.name], [t.name]);
-  const memoizedHelpText = useMemo(() => [t.help], [t.help]);
-  const memoizedNavigateText = useMemo(() => [t.navigate], [t.navigate]);
-  const memoizedPages = useMemo(() => t.pages, [t.pages]);
+  const memoizedWelcomeText = useMemo(() => Array.isArray(t.welcome) ? t.welcome : [t.welcome], [t.welcome]);
+  const memoizedNameText = useMemo(() => Array.isArray(t.name) ? t.name : [t.name], [t.name]);
+  const memoizedHelpText = useMemo(() => Array.isArray(t.help) ? t.help : [t.help], [t.help]);
+  const memoizedNavigateText = useMemo(() => Array.isArray(t.navigate) ? t.navigate : [t.navigate], [t.navigate]);
+  const memoizedPages = useMemo(() => Array.isArray(t.pages) ? t.pages : [t.pages], [t.pages]);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {

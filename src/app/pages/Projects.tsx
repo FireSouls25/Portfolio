@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import React, { useMemo } from 'react';
 import { useThemeLanguage } from '../context/ThemeLanguageContext';
 import TextType from '../components/TextType';
@@ -8,13 +9,13 @@ const Projects: React.FC = () => {
   const { language, translations } = useThemeLanguage();
   const t = useMemo(() => translations.projects[language] || translations.projects.en, [language, translations]);
 
-  const memoizedTitle = useMemo(() => [t.title], [t]);
-  const memoizedProject1Title = useMemo(() => [t.project1Title], [t]);
-  const memoizedProject1Desc = useMemo(() => [t.project1Desc], [t]);
-  const memoizedProject2Title = useMemo(() => [t.project2Title], [t]);
-  const memoizedProject2Desc = useMemo(() => [t.project2Desc], [t]);
-  const memoizedProject3Title = useMemo(() => [t.project3Title], [t]);
-  const memoizedProject3Desc = useMemo(() => [t.project3Desc], [t]);
+  const memoizedTitle = useMemo(() => Array.isArray(t.title) ? t.title : [t.title], [t.title]);
+  const memoizedProject1Title = useMemo(() => Array.isArray(t.project1Title) ? t.project1Title : [t.project1Title], [t.project1Title]);
+  const memoizedProject1Desc = useMemo(() => Array.isArray(t.project1Desc) ? t.project1Desc : [t.project1Desc], [t.project1Desc]);
+  const memoizedProject2Title = useMemo(() => Array.isArray(t.project2Title) ? t.project2Title : [t.project2Title], [t.project2Title]);
+  const memoizedProject2Desc = useMemo(() => Array.isArray(t.project2Desc) ? t.project2Desc : [t.project2Desc], [t.project2Desc]);
+  const memoizedProject3Title = useMemo(() => Array.isArray(t.project3Title) ? t.project3Title : [t.project3Title], [t.project3Title]);
+  const memoizedProject3Desc = useMemo(() => Array.isArray(t.project3Desc) ? t.project3Desc : [t.project3Desc], [t.project3Desc]);
 
   return (
     <div className="text-foreground font-mono p-4 pt-16">

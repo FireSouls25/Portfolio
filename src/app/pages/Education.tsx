@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import React, { useMemo } from 'react';
 import { useThemeLanguage } from '../context/ThemeLanguageContext';
 import TextType from '../components/TextType';
@@ -8,9 +9,9 @@ const Education: React.FC = () => {
   const { language, translations } = useThemeLanguage();
   const t = useMemo(() => translations.education[language] || translations.education.en, [language, translations]);
 
-  const memoizedTitle = useMemo(() => [t.title], [t]);
-  const memoizedUniversity = useMemo(() => [t.university], [t]);
-  const memoizedDescription = useMemo(() => [t.description], [t]);
+  const memoizedTitle = useMemo(() => Array.isArray(t.title) ? t.title : [t.title], [t.title]);
+  const memoizedUniversity = useMemo(() => Array.isArray(t.university) ? t.university : [t.university], [t.university]);
+  const memoizedDescription = useMemo(() => Array.isArray(t.description) ? t.description : [t.description], [t.description]);
 
   return (
     <div className="text-foreground font-mono p-4 pt-16">
@@ -27,7 +28,7 @@ const Education: React.FC = () => {
           <h2 className="text-2xl mb-2 text-main-85">
             <TextType text={memoizedUniversity} typingSpeed={10} pauseDuration={2000} showCursor={false} textColors={['hsl(120, 100%, 55%)']} initialDelay={200}/>
           </h2>
-          <img src="/images/education/ucc_logo.svg" alt="Universidad Cooperativa de Colombia" className="w-100 h-100 object-contain" />
+          <Image src="/images/education/ucc_logo.svg" alt="Universidad Cooperativa de Colombia" width={200} height={200} className="w-150 h-auto object-contain" />
         </div>
       </div>
     </div>

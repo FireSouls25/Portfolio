@@ -8,15 +8,15 @@ const Testimonies: React.FC = () => {
   const { language, translations } = useThemeLanguage();
   const t = useMemo(() => translations.testimonies[language] || translations.testimonies.en, [language, translations]);
 
-  const memoizedTitle = useMemo(() => [t.title], [t]);
-  const memoizedTestimony1 = useMemo(() => [t.testimony1], [t]);
-  const memoizedAuthor1 = useMemo(() => [t.author1], [t]);
-  const memoizedTestimony2 = useMemo(() => [t.testimony2], [t]);
-  const memoizedAuthor2 = useMemo(() => [t.author2], [t]);
-  const memoizedTestimony3 = useMemo(() => [t.testimony3], [t]);
-  const memoizedAuthor3 = useMemo(() => [t.author3], [t]);
-  const memoizedTestimony4 = useMemo(() => [t.testimony4], [t]);
-  const memoizedAuthor4 = useMemo(() => [t.author4], [t]);
+  const memoizedTitle = useMemo(() => Array.isArray(t.title) ? t.title : [t.title], [t.title]);
+  const memoizedTestimony1 = useMemo(() => Array.isArray(t.testimony1) ? t.testimony1 : [t.testimony1], [t.testimony1]);
+  const memoizedAuthor1 = useMemo(() => Array.isArray(t.author1) ? t.author1 : [t.author1], [t.author1]);
+  const memoizedTestimony2 = useMemo(() => Array.isArray(t.testimony2) ? t.testimony2 : [t.testimony2], [t.testimony2]);
+  const memoizedAuthor2 = useMemo(() => Array.isArray(t.author2) ? t.author2 : [t.author2], [t.author2]);
+  const memoizedTestimony3 = useMemo(() => Array.isArray(t.testimony3) ? t.testimony3 : [t.testimony3], [t.testimony3]);
+  const memoizedAuthor3 = useMemo(() => Array.isArray(t.author3) ? t.author3 : [t.author3], [t.author3]);
+  const memoizedTestimony4 = useMemo(() => Array.isArray(t.testimony4) ? t.testimony4 : [t.testimony4], [t.testimony4]);
+  const memoizedAuthor4 = useMemo(() => Array.isArray(t.author4) ? t.author4 : [t.author4], [t.author4]);
 
   return (
     <div className="text-foreground font-mono p-4 pt-16">

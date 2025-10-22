@@ -7,10 +7,21 @@ import translations from '../translations.json';
 type Theme = 'light' | 'dark';
 type Language = 'en' | 'es';
 
+interface TranslationContent {
+  [key: string]: string | string[];
+}
+
+interface Translations {
+  [key: string]: {
+    en: TranslationContent;
+    es: TranslationContent;
+  };
+}
+
 interface ThemeLanguageContextType {
   theme: Theme;
   language: Language;
-  translations: any;
+  translations: Translations;
   setTheme: (theme: Theme) => void;
   setLanguage: (language: Language) => void;
 }

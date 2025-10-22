@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import React, { useMemo } from 'react';
 import { useThemeLanguage } from '../context/ThemeLanguageContext';
 import TextType from '../components/TextType';
@@ -8,10 +9,10 @@ const AboutMe: React.FC = () => {
   const { language, translations } = useThemeLanguage();
   const t = useMemo(() => translations.aboutme[language] || translations.aboutme.en, [language, translations]);
 
-  const memoizedTitle = useMemo(() => [t.title], [t]);
-  const memoizedP1 = useMemo(() => [t.p1], [t]);
-  const memoizedP2 = useMemo(() => [t.p2], [t]);
-  const memoizedP3 = useMemo(() => [t.p3], [t]);
+  const memoizedTitle = useMemo(() => Array.isArray(t.title) ? t.title : [t.title], [t.title]);
+  const memoizedP1 = useMemo(() => Array.isArray(t.p1) ? t.p1 : [t.p1], [t.p1]);
+  const memoizedP2 = useMemo(() => Array.isArray(t.p2) ? t.p2 : [t.p2], [t.p2]);
+  const memoizedP3 = useMemo(() => Array.isArray(t.p3) ? t.p3 : [t.p3], [t.p3]);
 
   return (
     <div className="text-foreground font-mono p-4 pt-16">
