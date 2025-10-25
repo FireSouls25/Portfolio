@@ -4,6 +4,7 @@ import Image from 'next/image';
 import React, { useMemo } from 'react';
 import { useThemeLanguage } from '../context/ThemeLanguageContext';
 import TextType from '../components/TextType';
+import PixelTransition from '../components/PixelTransition';
 
 const AboutMe: React.FC = () => {
   const { language, translations } = useThemeLanguage();
@@ -54,11 +55,128 @@ const AboutMe: React.FC = () => {
             />
           </span>
         </div>
+        
         <div className="grid grid-cols-4 gap-4 mt-8">
-          <img src="/images/aboutme/dog.webp" alt="Profile 1" className="w-100 h-100 object-cover rounded" />
-          <img src="/images/aboutme/me_working.webp" alt="Profile 2" className="w-100 h-100 object-cover rounded" />
-          <img src="/images/aboutme/me.webp" alt="Profile 3" className="w-100 h-100 object-cover rounded" />
-          <img src="/images/aboutme/working.webp" alt="Profile 4" className="w-100 h-100 object-cover rounded" />
+          <PixelTransition
+            firstContent={
+              <img
+              src="/images/aboutme/dog.webp"
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            />
+            }
+
+            secondContent={
+             <div
+              style={{
+                width: "100%",
+                height: "100%",
+                display: "grid",
+                placeItems: "center",
+                backgroundColor: "#111"
+              }}>
+
+              <img
+              src="/images/aboutme/dog.webp"
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            />
+
+            </div>
+            }
+            gridSize={12}
+            pixelColor='#0a0a0a'
+            animationStepDuration={0.4}
+            className="custom-pixel-card"
+          />
+          <PixelTransition
+            firstContent={
+              <img
+              src="images/aboutme/me_working.webp"
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            />
+            }
+
+            secondContent={
+             <div
+              style={{
+                width: "100%",
+                height: "100%",
+                display: "grid",
+                placeItems: "center",
+                backgroundColor: "#111"
+              }}>
+
+              <img
+              src="images/aboutme/me_working.webp"
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            />
+
+            </div>
+            }
+            gridSize={12}
+            pixelColor='#0a0a0a'
+            animationStepDuration={0.4}
+            className="custom-pixel-card"
+          />
+          <PixelTransition
+            firstContent={
+              <img
+              src="images/aboutme/me.webp"
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            />
+            }
+
+            secondContent={
+             <div
+              style={{
+                width: "100%",
+                height: "100%",
+                display: "grid",
+                placeItems: "center",
+                backgroundColor: "#111"
+              }}>
+
+              <img
+              src="images/aboutme/me.webp"
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            />
+
+            </div>
+            }
+            gridSize={12}
+            pixelColor='#0a0a0a'
+            animationStepDuration={0.4}
+            className="custom-pixel-card"
+          />
+          <PixelTransition
+            firstContent={
+              <img
+              src="images/aboutme/working.webp"
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            />
+            }
+
+            secondContent={
+             <div
+              style={{
+                width: "100%",
+                height: "100%",
+                display: "grid",
+                placeItems: "center",
+                backgroundColor: "#111"
+              }}>
+
+              <img
+              src="images/aboutme/working.webp"
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            />
+
+            </div>
+            }
+            gridSize={12}
+            pixelColor='#0a0a0a'
+            animationStepDuration={0.4}
+            className="custom-pixel-card"
+          />
         </div>
       </div>
     </div>

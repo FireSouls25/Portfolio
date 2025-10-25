@@ -4,6 +4,7 @@ import Image from 'next/image';
 import React, { useMemo } from 'react';
 import { useThemeLanguage } from '../context/ThemeLanguageContext';
 import TextType from '../components/TextType';
+import PixelTransition from '../components/PixelTransition';
 
 const Education: React.FC = () => {
   const { language, translations } = useThemeLanguage();
@@ -28,7 +29,36 @@ const Education: React.FC = () => {
           <h2 className="text-2xl mb-2 text-main-85">
             <TextType text={memoizedUniversity} typingSpeed={10} pauseDuration={2000} showCursor={false} textColors={['hsl(120, 100%, 55%)']} initialDelay={200}/>
           </h2>
-          <Image src="/images/education/ucc_logo.svg" alt="Universidad Cooperativa de Colombia" width={200} height={200} className="w-150 h-auto object-contain" />
+          <PixelTransition
+            firstContent={
+              <img
+              src="/images/education/ucc_logo.svg"
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            />
+            }
+
+            secondContent={
+             <div
+              style={{
+                width: "100%",
+                height: "100%",
+                display: "grid",
+                placeItems: "center",
+                backgroundColor: "#111"
+              }}>
+
+              <img
+              src="/images/education/ucc_pasto.webp"
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            />
+
+            </div>
+            }
+            gridSize={12}
+            pixelColor='#0a0a0a'
+            animationStepDuration={0.4}
+            className="custom-pixel-card"
+          />
         </div>
       </div>
     </div>
