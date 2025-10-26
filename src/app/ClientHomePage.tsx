@@ -216,7 +216,7 @@ export default function Home() {
           gridMul={[2, 1]}
           digitSize={1.2}
           timeScale={0.5}
-          pause={false}
+          pause={isMobile}
           scanlineIntensity={0.5}
           glitchAmount={0.2}
           flickerAmount={0.2}

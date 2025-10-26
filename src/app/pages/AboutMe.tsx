@@ -3,11 +3,13 @@
 import Image from 'next/image';
 import React, { useMemo } from 'react';
 import { useThemeLanguage } from '../context/ThemeLanguageContext';
+import { useMediaQuery } from '../hooks/useMediaQuery';
 import TextType from '../components/TextType';
 import PixelTransition from '../components/PixelTransition';
 
 const AboutMe: React.FC = () => {
   const { language, translations } = useThemeLanguage();
+  const isMobile = useMediaQuery('(max-width: 768px)');
   const t = useMemo(() => translations.aboutme[language] || translations.aboutme.en, [language, translations]);
 
   const memoizedTitle = useMemo(() => Array.isArray(t.title) ? t.title : [t.title], [t.title]);
@@ -56,7 +58,7 @@ const AboutMe: React.FC = () => {
           </span>
         </div>
         
-        <div className="grid grid-cols-4 gap-4 mt-8">
+        <div className={`grid ${isMobile ? 'grid-cols-1' : 'grid-cols-4'} gap-4 mt-8`}>
           <PixelTransition
             firstContent={
               <img
