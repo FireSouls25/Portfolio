@@ -21,9 +21,9 @@
 .light {
     --background: #FFFFFF;
     --foreground: #000000;
-    --main: hsl(0, 0%, 0%);
-    --submain: hsla(0, 0%, 0%, 0.85);
-    --submain-70: hsla(0, 0%, 0%, 0.7);
+    --main: hsl(0, 0%, 95%);
+    --submain: hsla(0, 0%, 95%, 0.85);
+    --submain-70: hsla(0, 0%, 95%, 0.7);
     --card: #f0f0f0;
 }
 

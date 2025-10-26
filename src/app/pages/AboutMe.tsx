@@ -22,7 +22,7 @@ const AboutMe: React.FC = () => {
         typingSpeed={60} 
         pauseDuration={2000} 
         showCursor={false} 
-        textColors={['hsl(120, 100%, 55%)']}
+        textColors={['var(--main)']}
         />
       </h1>
       <div className="flex flex-col gap-8">
@@ -33,7 +33,7 @@ const AboutMe: React.FC = () => {
             pauseDuration={2000} 
             showCursor={false} 
             initialDelay={1000}
-            textColors={['hsl(120, 100%, 55%)']}
+            textColors={['var(--main)']}
             />
           </span>
           <span className="text-xl mb-4">
@@ -42,7 +42,7 @@ const AboutMe: React.FC = () => {
             pauseDuration={2000} 
             showCursor={false} 
             initialDelay={3000}
-            textColors={['hsl(120, 100%, 55%)']}
+            textColors={['var(--main)']}
             />
           </span>
           <span className="text-xl mb-4">
@@ -51,7 +51,7 @@ const AboutMe: React.FC = () => {
             pauseDuration={2000} 
             showCursor={false} 
             initialDelay={5000}
-            textColors={['hsl(120, 100%, 55%)']}
+            textColors={['var(--main)']}
             />
           </span>
         </div>

@@ -21,39 +21,39 @@ const Testimonies: React.FC = () => {
   return (
     <div className="text-foreground font-mono p-4 pt-16">
       <h1 className="text-6xl mb-4 text-main-100">
-        <TextType text={memoizedTitle} typingSpeed={30} pauseDuration={2000} showCursor={false} textColors={['hsl(120, 100%, 55%)']}/>
+        <TextType text={memoizedTitle} typingSpeed={30} pauseDuration={2000} showCursor={false} textColors={['var(--main)']}/>
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div>
           <span className="text-xl mb-4">
-            <TextType text={memoizedTestimony1} typingSpeed={10} pauseDuration={2000} showCursor={false} textColors={['hsl(120, 100%, 55%)']} initialDelay={500}/>
+            <TextType text={memoizedTestimony1} typingSpeed={10} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} initialDelay={500}/>
           </span>
           <span className="text-xl mb-4 text-main-70">
-            <TextType text={memoizedAuthor1} typingSpeed={20} pauseDuration={2000} showCursor={false} textColors={['hsl(120, 100%, 55%)']} initialDelay={1800}/>
+            <TextType text={memoizedAuthor1} typingSpeed={20} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} initialDelay={1800}/>
           </span>
         </div>
         <div>
           <span className="text-xl mb-4">
-            <TextType text={memoizedTestimony2} typingSpeed={10} pauseDuration={2000} showCursor={false} textColors={['hsl(120, 100%, 55%)']} initialDelay={1200}/>
+            <TextType text={memoizedTestimony2} typingSpeed={10} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} initialDelay={1200}/>
           </span>
           <span className="text-xl mb-4 text-main-70">
-            <TextType text={memoizedAuthor2} typingSpeed={20} pauseDuration={2000} showCursor={false} textColors={['hsl(120, 100%, 55%)']} initialDelay={2500}/>
+            <TextType text={memoizedAuthor2} typingSpeed={20} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} initialDelay={2500}/>
           </span>
         </div>
         <div>
           <span className="text-xl mb-4">
-            <TextType text={memoizedTestimony3} typingSpeed={10} pauseDuration={2000} showCursor={false} textColors={['hsl(120, 100%, 55%)']} initialDelay={2200}/>
+            <TextType text={memoizedTestimony3} typingSpeed={10} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} initialDelay={2200}/>
           </span>
           <span className="text-xl mb-4 text-main-70">
-            <TextType text={memoizedAuthor3} typingSpeed={20} pauseDuration={2000} showCursor={false} textColors={['hsl(120, 100%, 55%)']} initialDelay={3800}/>
+            <TextType text={memoizedAuthor3} typingSpeed={20} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} initialDelay={3800}/>
           </span>
         </div>
         <div>
           <span className="text-xl mb-4">
-            <TextType text={memoizedTestimony4} typingSpeed={10} pauseDuration={2000} showCursor={false} textColors={['hsl(120, 100%, 55%)']} initialDelay={3200}/>
+            <TextType text={memoizedTestimony4} typingSpeed={10} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} initialDelay={3200}/>
           </span>
           <span className="text-xl mb-4 text-main-70">
-            <TextType text={memoizedAuthor4} typingSpeed={20} pauseDuration={2000} showCursor={false} textColors={['hsl(120, 100%, 55%)']} initialDelay={4200}/>
+            <TextType text={memoizedAuthor4} typingSpeed={20} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} initialDelay={4200}/>
           </span>
         </div>
       </div>

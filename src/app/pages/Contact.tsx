@@ -18,24 +18,24 @@ const Contact: React.FC = () => {
   return (
     <div className="text-foreground font-mono p-4 pt-16">
       <h1 className="text-6xl mb-4 text-main-100">
-        <TextType text={memoizedTitle} typingSpeed={40} pauseDuration={2000} showCursor={false} textColors={['hsl(120, 100%, 55%)']} />
+        <TextType text={memoizedTitle} typingSpeed={40} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} />
       </h1>
       <div className="flex flex-col space-y-4 text-xl">
         <span className="flex items-center">
           <Image src="/images/contacts/proton-mail-logo.svg" alt="Email" width={24} height={24} className="w-6 h-6 mr-2" />
-          <TextType text={memoizedEmail} typingSpeed={30} pauseDuration={2000} showCursor={false} textColors={['hsl(120, 100%, 55%)']} />
+          <TextType text={memoizedEmail} typingSpeed={30} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} />
         </span>
         <span className="flex items-center">
           <Image src="/images/contacts/github-logo.svg" alt="Github" width={24} height={24} className="w-6 h-6 mr-2" />
-          <TextType text={memoizedGithub} typingSpeed={30} pauseDuration={2000} showCursor={false} textColors={['hsl(120, 100%, 55%)']} />
+          <TextType text={memoizedGithub} typingSpeed={30} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} />
         </span>
         <span className="flex items-center">
           <Image src="/images/contacts/linkedin-logo.svg" alt="LinkedIn" width={24} height={24} className="w-6 h-6 mr-2" />
-          <TextType text={memoizedLinkedin} typingSpeed={30} pauseDuration={2000} showCursor={false} textColors={['hsl(120, 100%, 55%)']} />
+          <TextType text={memoizedLinkedin} typingSpeed={30} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} />
         </span>
         <span className="flex items-center">
           <Image src="/images/contacts/download-logo.svg" alt="Download CV" width={24} height={24} className="w-6 h-6 mr-2" />
-          <TextType text={memoizedCv} typingSpeed={30} pauseDuration={2000} showCursor={false} textColors={['hsl(120, 100%, 55%)']} />
+          <TextType text={memoizedCv} typingSpeed={30} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} />
         </span>
       </div>
     </div>

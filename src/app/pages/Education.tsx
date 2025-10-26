@@ -17,17 +17,17 @@ const Education: React.FC = () => {
   return (
     <div className="text-foreground font-mono p-4 pt-16">
       <h1 className="text-6xl mb-4 text-main-100">
-        <TextType text={memoizedTitle} typingSpeed={20} pauseDuration={2000} showCursor={false} textColors={['hsl(120, 100%, 55%)']} />
+        <TextType text={memoizedTitle} typingSpeed={20} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} />
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         <div>
           <span className="text-xl mb-4">
-            <TextType text={memoizedDescription} typingSpeed={5} pauseDuration={2000} showCursor={false} textColors={['hsl(120, 100%, 55%)']} initialDelay={200}/>
+            <TextType text={memoizedDescription} typingSpeed={5} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} initialDelay={200}/>
           </span>
         </div>
         <div className="flex flex-col items-center">
           <h2 className="text-2xl mb-2 text-main-85">
-            <TextType text={memoizedUniversity} typingSpeed={10} pauseDuration={2000} showCursor={false} textColors={['hsl(120, 100%, 55%)']} initialDelay={200}/>
+            <TextType text={memoizedUniversity} typingSpeed={10} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} initialDelay={200}/>
           </h2>
           <PixelTransition
             firstContent={

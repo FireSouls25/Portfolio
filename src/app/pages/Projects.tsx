@@ -20,35 +20,35 @@ const Projects: React.FC = () => {
   return (
     <div className="text-foreground font-mono p-4 pt-16">
       <h1 className="text-6xl mb-4 text-main-100">
-        <TextType text={memoizedTitle} typingSpeed={30} pauseDuration={2000} showCursor={false} textColors={['hsl(120, 100%, 55%)']} />
+        <TextType text={memoizedTitle} typingSpeed={30} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} />
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div className="flex flex-col items-center text-center">
           <h2 className="text-2xl mb-2 text-main-85">
-            <TextType text={memoizedProject1Title} typingSpeed={30} pauseDuration={2000} showCursor={false} textColors={['hsl(120, 100%, 55%)']} initialDelay={200}/>
+            <TextType text={memoizedProject1Title} typingSpeed={30} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} initialDelay={200}/>
           </h2>
           <span className="text-lg mb-4">
-            <TextType text={memoizedProject1Desc} typingSpeed={10} pauseDuration={2000} showCursor={false} textColors={['hsl(120, 100%, 55%)']} initialDelay={400}/>
+            <TextType text={memoizedProject1Desc} typingSpeed={10} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} initialDelay={400}/>
           </span>
           <img src="/images/projects/3D_calculator.webp" alt="3D Graphic Calculator" 
                className="w-full h-auto object-cover rounded rounded-xl border-2 border-green-600" />
         </div>
         <div className="flex flex-col items-center text-center">
           <h2 className="text-2xl mb-2 text-main-85">
-            <TextType text={memoizedProject2Title} typingSpeed={30} pauseDuration={2000} showCursor={false} textColors={['hsl(120, 100%, 55%)']} initialDelay={2000}/>
+            <TextType text={memoizedProject2Title} typingSpeed={30} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} initialDelay={2000}/>
           </h2>
           <span className="text-lg mb-4">
-            <TextType text={memoizedProject2Desc} typingSpeed={10} pauseDuration={2000} showCursor={false} textColors={['hsl(120, 100%, 55%)']} initialDelay={2200}/>
+            <TextType text={memoizedProject2Desc} typingSpeed={10} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} initialDelay={2200}/>
           </span>
           <img src="/images/projects/project2.webp" 
                className="w-full h-auto object-cover rounded rounded-xl border-2 border-green-600" />
         </div>
         <div className="flex flex-col items-center text-center">
           <h2 className="text-2xl mb-2 text-main-85">
-            <TextType text={memoizedProject3Title} typingSpeed={30} pauseDuration={2000} showCursor={false} textColors={['hsl(120, 100%, 55%)']} initialDelay={4100}/>
+            <TextType text={memoizedProject3Title} typingSpeed={30} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} initialDelay={4100}/>
           </h2>
           <span className="text-lg mb-4">
-            <TextType text={memoizedProject3Desc} typingSpeed={10} pauseDuration={2000} showCursor={false} textColors={['hsl(120, 100%, 55%)']} initialDelay={4300}/>
+            <TextType text={memoizedProject3Desc} typingSpeed={10} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} initialDelay={4300}/>
           </span>
           <img src="/images/projects/settings.webp" 
                className="w-96 h-auto object-cover rounded rounded-xl border-2 border-green-600" />
