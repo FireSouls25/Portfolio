@@ -104,16 +104,6 @@ export default function Home() {
     setCommand('');
   };
 
-  const faultyTerminalProps = theme === 'dark' 
-  ? {
-      tint: "#BBFF99",
-      brightness: 0.8,
-    }
-  : {
-      tint: "#000000",
-      brightness: 1.5,
-    };
-
   const renderPageContent = () => {
     switch (currentPage) {
       case 'home':
@@ -211,7 +201,7 @@ export default function Home() {
           mouseReact={false}
           mouseStrength={0.5}
           pageLoadAnimation={false}
-          {...faultyTerminalProps}
+          tint={'#BBFF99'}
         />
       </div>
       <div className={`w-full h-full flex flex-col text-left p-8 relative z-10 ${isMobile ? 'p-4' : 'p-12'}`}>
@@ -236,7 +226,7 @@ export default function Home() {
             </div>
           )}
           {error && <div className="text-xl mt-2">{error}</div>}
-          <form onSubmit={handleCommand} className="mt-2 flex items-center text-xl">
+          <form onSubmit={handleCommand} className="mt-2 flex items-center text-xl p-2 rounded bg-cline">
             <ul>
               <li>{'>_'}</li>
             </ul>
