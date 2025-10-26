@@ -19,8 +19,26 @@ export default function Home() {
   const [output, setOutput] = useState<string[]>([]);
   const [error, setError] = useState<string>('');
   const [currentPage, setCurrentPage] = useState<string>('home');
-  
+  const [tint, setTint] = useState('');
   const t = useMemo(() => translations.home[language] || translations.home.en, [language, translations]);
+
+  useEffect(() => {
+    const fetchTint = () => {
+      const computedStyle = getComputedStyle(document.documentElement);
+      const tintColor = computedStyle.getPropertyValue('--tint').trim();
+      setTint(tintColor);
+    };
+
+    fetchTint();
+
+    const observer = new MutationObserver(fetchTint);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class']
+    });
+
+    return () => observer.disconnect();
+  }, [theme]);
 
   const memoizedWelcomeText = useMemo(() => Array.isArray(t.welcome) ? t.welcome : [t.welcome], [t.welcome]);
   const memoizedNameText = useMemo(() => Array.isArray(t.name) ? t.name : [t.name], [t.name]);
@@ -103,6 +121,14 @@ export default function Home() {
     
     setCommand('');
   };
+
+  const faultyTerminalProps = theme === 'dark'
+  ? {
+      tint: tint,
+    }
+  : {
+      tint: tint,
+    };
 
   const renderPageContent = () => {
     switch (currentPage) {
@@ -201,7 +227,7 @@ export default function Home() {
           mouseReact={false}
           mouseStrength={0.5}
           pageLoadAnimation={false}
-          tint={'#BBFF99'}
+          {...faultyTerminalProps}
         />
       </div>
       <div className={`w-full h-full flex flex-col text-left p-8 relative z-10 ${isMobile ? 'p-4' : 'p-12'}`}>
