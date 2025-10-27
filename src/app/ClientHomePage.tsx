@@ -10,6 +10,7 @@ import Education from './pages/Education';
 import Contact from './pages/Contact';
 import { useThemeLanguage } from './context/ThemeLanguageContext';
 import { useMediaQuery } from '@/app/hooks/useMediaQuery';
+import ImagePreloader from './components/ImagePreloader';
 import { getHelp } from './commands';
 
 export default function Home() {
@@ -208,27 +209,44 @@ export default function Home() {
     }
   };
 
+  const imagesToPreload = [
+    '/images/aboutme/dog.webp',
+    '/images/aboutme/me_working.webp',
+    '/images/aboutme/me.webp',
+    '/images/aboutme/working.webp',
+    '/images/projects/3D_calculator.webp',
+    '/images/projects/project2.webp',
+    '/images/projects/settings.webp',
+    '/images/education/ucc_logo.svg',
+    '/images/education/ucc_pasto.webp',
+  ];
+
   return (
     <div className="h-screen w-full bg-background text-foreground font-mono flex items-center justify-center relative overflow-hidden p-4">
+      <ImagePreloader images={imagesToPreload} />
       <div className="fixed inset-0 z-0">
-        <FaultyTerminal
-          scale={3}
-          gridMul={[2, 1]}
-          digitSize={1.2}
-          timeScale={0.5}
-          pause={isMobile}
-          scanlineIntensity={0.5}
-          glitchAmount={0.2}
-          flickerAmount={0.2}
-          noiseAmp={0.25}
-          chromaticAberration={0}
-          dither={0}
-          curvature={0.1}
-          mouseReact={false}
-          mouseStrength={0.5}
-          pageLoadAnimation={false}
-          {...faultyTerminalProps}
-        />
+        {!isMobile ? (
+          <FaultyTerminal
+            scale={3}
+            gridMul={[2, 1]}
+            digitSize={1.2}
+            timeScale={0.5}
+            pause={isMobile}
+            scanlineIntensity={0.5}
+            glitchAmount={0.2}
+            flickerAmount={0.2}
+            noiseAmp={0.25}
+            chromaticAberration={0}
+            dither={0}
+            curvature={0.1}
+            mouseReact={false}
+            mouseStrength={0.5}
+            pageLoadAnimation={false}
+            {...faultyTerminalProps}
+          />
+        ) : (
+          <div className="h-screen w-full bg-background" />
+        )}
       </div>
       <div className={`w-full h-full flex flex-col text-left p-8 relative z-10 ${isMobile ? 'p-4' : 'p-12'}`}>
         <div className="flex-grow overflow-y-auto">
