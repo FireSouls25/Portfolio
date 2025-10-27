@@ -41,11 +41,11 @@ export default function Home() {
     return () => observer.disconnect();
   }, [theme]);
 
-  const memoizedWelcomeText = useMemo(() => Array.isArray(t.welcome) ? t.welcome : [t.welcome], [t.welcome]);
-  const memoizedNameText = useMemo(() => Array.isArray(t.name) ? t.name : [t.name], [t.name]);
-  const memoizedHelpText = useMemo(() => Array.isArray(t.help) ? t.help : [t.help], [t.help]);
-  const memoizedNavigateText = useMemo(() => Array.isArray(t.navigate) ? t.navigate : [t.navigate], [t.navigate]);
-  const memoizedPages = useMemo(() => Array.isArray(t.pages) ? t.pages : [t.pages], [t.pages]);
+  const WelcomeText = useMemo(() => Array.isArray(t.welcome) ? t.welcome : [t.welcome], [t.welcome]);
+  const NameText = useMemo(() => Array.isArray(t.name) ? t.name : [t.name], [t.name]);
+  const HelpText = useMemo(() => Array.isArray(t.help) ? t.help : [t.help], [t.help]);
+  const NavigateText = useMemo(() => Array.isArray(t.navigate) ? t.navigate : [t.navigate], [t.navigate]);
+  const Pages = useMemo(() => Array.isArray(t.pages) ? t.pages : [t.pages], [t.pages]);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -138,7 +138,7 @@ export default function Home() {
           <>
             <h1 className="text-6xl mb-4">
               <TextType
-                text={memoizedWelcomeText}
+                text={WelcomeText}
                 typingSpeed={20}
                 pauseDuration={2000}
                 showCursor={false}
@@ -147,7 +147,7 @@ export default function Home() {
             </h1>
             <h2 className="text-xl mb-6">
               <TextType
-                text={memoizedNameText}
+                text={NameText}
                 typingSpeed={10}
                 pauseDuration={2000}
                 showCursor={false}
@@ -157,7 +157,7 @@ export default function Home() {
               </h2>
             <h3 className="text-xl mb-4">
               <TextType
-                text={memoizedHelpText}
+                text={HelpText}
                 typingSpeed={10}
                 pauseDuration={2000}
                 showCursor={false}
@@ -167,7 +167,7 @@ export default function Home() {
               </h3>
             <h3 className="text-xl mb-4">
               <TextType
-                text={memoizedNavigateText}
+                text={NavigateText}
                 typingSpeed={10}
                 pauseDuration={2000}
                 showCursor={false}
@@ -176,7 +176,7 @@ export default function Home() {
               />
             </h3>
             <ul className="list-none text-xl mb-6">
-                {memoizedPages.map((page: string) => ((
+                {Pages.map((page: string) => ((
                     <li key={page} className="mb-2">
                       <a href="#" className="hover:underline">
                         <TextType

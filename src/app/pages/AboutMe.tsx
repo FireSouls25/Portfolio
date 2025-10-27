@@ -12,15 +12,15 @@ const AboutMe: React.FC = () => {
   const isMobile = useMediaQuery('(max-width: 768px)');
   const t = useMemo(() => translations.aboutme[language] || translations.aboutme.en, [language, translations]);
 
-  const memoizedTitle = useMemo(() => Array.isArray(t.title) ? t.title : [t.title], [t.title]);
-  const memoizedP1 = useMemo(() => Array.isArray(t.p1) ? t.p1 : [t.p1], [t.p1]);
-  const memoizedP2 = useMemo(() => Array.isArray(t.p2) ? t.p2 : [t.p2], [t.p2]);
-  const memoizedP3 = useMemo(() => Array.isArray(t.p3) ? t.p3 : [t.p3], [t.p3]);
+  const title = useMemo(() => Array.isArray(t.title) ? t.title : [t.title], [t.title]);
+  const p1 = useMemo(() => Array.isArray(t.p1) ? t.p1 : [t.p1], [t.p1]);
+  const p2 = useMemo(() => Array.isArray(t.p2) ? t.p2 : [t.p2], [t.p2]);
+  const p3 = useMemo(() => Array.isArray(t.p3) ? t.p3 : [t.p3], [t.p3]);
 
   return (
     <div className="text-foreground font-mono p-4 pt-16">
       <h1 className="text-6xl mb-4 text-main-100">
-        <TextType text={memoizedTitle} 
+        <TextType text={title} 
         typingSpeed={60} 
         pauseDuration={2000} 
         showCursor={false} 
@@ -30,7 +30,7 @@ const AboutMe: React.FC = () => {
       <div className="flex flex-col gap-8">
         <div className="flex flex-col">
           <span className="text-xl mb-4">
-            <TextType text={memoizedP1} 
+            <TextType text={p1} 
             typingSpeed={10} 
             pauseDuration={2000} 
             showCursor={false} 
@@ -39,7 +39,7 @@ const AboutMe: React.FC = () => {
             />
           </span>
           <span className="text-xl mb-4">
-            <TextType text={memoizedP2} 
+            <TextType text={p2} 
             typingSpeed={10} 
             pauseDuration={2000} 
             showCursor={false} 
@@ -48,7 +48,7 @@ const AboutMe: React.FC = () => {
             />
           </span>
           <span className="text-xl mb-4">
-            <TextType text={memoizedP3} 
+            <TextType text={p3} 
             typingSpeed={20} 
             pauseDuration={2000} 
             showCursor={false} 
