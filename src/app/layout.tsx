@@ -15,8 +15,8 @@ const vt323 = VT323({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio",
-  description: "My Portfolio",
+  title: "Enmanuel Castillo",
+  description: "My name is Enmanuel Castillo, checkout my Portfolio",
 };
 
 export default function RootLayout({
