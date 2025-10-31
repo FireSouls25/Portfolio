@@ -125,13 +125,13 @@ export default function Home() {
     setCommand('');
   };
 
-  const faultyTerminalProps = theme === 'dark'
+  const faultyTerminalProps = useMemo(() => (theme === 'dark'
   ? {
       tint: tint,
     }
   : {
       tint: tint,
-    };
+    }), [theme, tint]);
 
   const renderPageContent = () => {
     switch (currentPage) {
@@ -228,30 +228,30 @@ export default function Home() {
   return (
     <div className="h-screen w-full bg-background text-foreground font-mono flex items-center justify-center relative overflow-hidden p-4">
       <ImagePreloader images={imagesToPreload} />
-      <div className="fixed inset-0 z-0">
-        {!isMobile ? (
-          <FaultyTerminal
-            scale={3}
-            gridMul={[2, 1]}
-            digitSize={1.2}
-            timeScale={0.5}
-            pause={isMobile}
-            scanlineIntensity={0.5}
-            glitchAmount={0.1}
-            flickerAmount={0.1}
-            noiseAmp={0.25}
-            chromaticAberration={0}
-            dither={0}
-            curvature={0.1}
-            mouseReact={false}
-            mouseStrength={0}
-            pageLoadAnimation={false}
-            {...faultyTerminalProps}
-          />
-        ) : (
-          <div className="h-screen w-full bg-background" />
-        )}
-      </div>
+        <div className="fixed inset-0 z-0">
+          {useMemo(() => !isMobile ? (
+            <FaultyTerminal
+              scale={3}
+              gridMul={[2, 1]}
+              digitSize={1.2}
+              timeScale={0.5}
+              pause={isMobile}
+              scanlineIntensity={0.5}
+              glitchAmount={0.1}
+              flickerAmount={0.1}
+              noiseAmp={0.25}
+              chromaticAberration={0}
+              dither={0}
+              curvature={0.1}
+              mouseReact={false}
+              mouseStrength={0}
+              pageLoadAnimation={false}
+              {...faultyTerminalProps}
+            />
+          ) : (
+            <div className="h-screen w-full bg-background" />
+          ), [isMobile, faultyTerminalProps])}
+        </div>
       <div className={`w-full h-full flex flex-col text-left p-8 relative z-10 ${isMobile ? 'p-4' : 'p-12'}`}>
         <div className="flex-grow overflow-y-auto">
           {renderPageContent()}
