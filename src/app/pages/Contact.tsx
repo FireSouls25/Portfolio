@@ -16,7 +16,7 @@ const Contact: React.FC = () => {
   const Cv = useMemo(() => Array.isArray(t.cv) ? t.cv : [t.cv], [t.cv]);
 
   return (
-    <div className="text-foreground font-mono p-4 pt-16">
+    <div className="text-foreground font-mono p-4 pt-16 p-2 bg-cline rounded-xl opacity-85">
       <h1 className="text-6xl mb-4 text-main-100">
         <TextType text={Title} typingSpeed={40} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} />
       </h1>

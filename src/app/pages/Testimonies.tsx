@@ -19,7 +19,7 @@ const Testimonies: React.FC = () => {
   const Author4 = useMemo(() => Array.isArray(t.author4) ? t.author4 : [t.author4], [t.author4]);
 
   return (
-    <div className="text-foreground font-mono p-4 pt-16">
+    <div className="text-foreground font-mono p-4 pt-16 bg-cline rounded-xl opacity-90">
       <h1 className="text-6xl mb-4 text-main-100">
         <TextType text={Title} typingSpeed={30} pauseDuration={2000} showCursor={false} textColors={['var(--main)']}/>
       </h1>

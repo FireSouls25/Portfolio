@@ -19,16 +19,17 @@ const AboutMe: React.FC = () => {
 
   return (
     <div className="text-foreground font-mono p-4 pt-16">
-      <h1 className="text-6xl mb-4 text-main-100">
-        <TextType text={title} 
-        typingSpeed={60} 
-        pauseDuration={2000} 
-        showCursor={false} 
-        textColors={['var(--main)']}
-        />
-      </h1>
+      
       <div className="flex flex-col gap-8">
-        <div className="flex flex-col">
+        <div className="flex flex-col p-2 bg-cline rounded-xl opacity-85">
+          <h1 className="text-6xl mb-4 text-main-100">
+            <TextType text={title} 
+            typingSpeed={60} 
+            pauseDuration={2000} 
+            showCursor={false} 
+            textColors={['var(--main)']}
+            />
+          </h1>
           <span className="text-xl mb-4">
             <TextType text={p1} 
             typingSpeed={10} 

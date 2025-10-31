@@ -136,7 +136,8 @@ export default function Home() {
       case 'home':
         return (
           <>
-            <h1 className="text-6xl mb-4">
+          <div className='p-2 bg-cline rounded-xl opacity-85'>
+            <h1 className="text-6xl items-center mb-4">
               <TextType
                 text={WelcomeText}
                 typingSpeed={20}
@@ -192,6 +193,7 @@ export default function Home() {
                   )
                 ))}
               </ul>
+          </div>
           </>
         );
       case 'aboutme':
@@ -254,7 +256,7 @@ export default function Home() {
         </div>
         <div className="mt-auto">
           {output.length > 0 && (
-            <div className="text-xl mt-2">
+            <div className="text-xl mt-2 p-2 bg-cline rounded-xl opacity-90">
               {output.map((line, index) => (
                 <div key={index}>
                   <TextType
@@ -270,7 +272,7 @@ export default function Home() {
             </div>
           )}
           {error && <div className="text-xl mt-2">{error}</div>}
-          <form onSubmit={handleCommand} className="mt-2 flex items-center text-xl p-2 rounded bg-cline">
+          <form onSubmit={handleCommand} className="mt-2 flex items-center text-xl p-2 rounded-xl bg-cline opacity-90">
             <ul>
               <li>{'>_'}</li>
             </ul>

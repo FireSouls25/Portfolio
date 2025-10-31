@@ -18,7 +18,7 @@ const Projects: React.FC = () => {
   const project3Desc = useMemo(() => Array.isArray(t.project3Desc) ? t.project3Desc : [t.project3Desc], [t.project3Desc]);
 
   return (
-    <div className="text-foreground font-mono p-4 pt-16">
+    <div className="text-foreground font-mono p-4 pt-16 bg-cline rounded-xl opacity-90">
       <h1 className="text-6xl mb-4 text-main-100">
         <TextType text={title} typingSpeed={30} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} />
       </h1>
