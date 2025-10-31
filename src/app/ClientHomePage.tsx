@@ -2,7 +2,7 @@
 
 import TextType from './components/TextType';
 import FaultyTerminal from './components/FaultyTerminal';
-import { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import AboutMe from './pages/AboutMe';
 import Projects from './pages/Projects';
 import Testimonies from './pages/Testimonies';
@@ -12,6 +12,8 @@ import { useThemeLanguage } from './context/ThemeLanguageContext';
 import { useMediaQuery } from '@/app/hooks/useMediaQuery';
 import ImagePreloader from './components/ImagePreloader';
 import { getHelp } from './commands';
+
+const MemoizedTextType = React.memo(TextType);
 
 export default function Home() {
   const { theme, language, translations, setTheme, setLanguage } = useThemeLanguage();
@@ -235,14 +237,14 @@ export default function Home() {
             timeScale={0.5}
             pause={isMobile}
             scanlineIntensity={0.5}
-            glitchAmount={0.2}
-            flickerAmount={0.2}
+            glitchAmount={0.1}
+            flickerAmount={0.1}
             noiseAmp={0.25}
             chromaticAberration={0}
             dither={0}
             curvature={0.1}
             mouseReact={false}
-            mouseStrength={0.5}
+            mouseStrength={0}
             pageLoadAnimation={false}
             {...faultyTerminalProps}
           />
@@ -259,8 +261,8 @@ export default function Home() {
             <div className="text-xl mt-2 p-2 bg-cline rounded-xl opacity-90">
               {output.map((line, index) => (
                 <div key={index}>
-                  <TextType
-                    text={[line]}
+                  <MemoizedTextType
+                    text={line}
                     typingSpeed={10}
                     pauseDuration={2000}
                     showCursor={false}
