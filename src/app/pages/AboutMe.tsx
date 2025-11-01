@@ -22,7 +22,7 @@ const AboutMe: React.FC = () => {
       
       <div className="flex flex-col gap-8">
         <div className="flex flex-col p-2 bg-cline rounded-xl opacity-85">
-          <h1 className="text-6xl mb-4 text-main-100">
+          <h1 className="text-[96px] mb-4">
             <TextType text={title} 
             typingSpeed={60} 
             pauseDuration={2000} 
@@ -30,7 +30,7 @@ const AboutMe: React.FC = () => {
             textColors={['var(--main)']}
             />
           </h1>
-          <span className="text-xl mb-4">
+          <span className="text-[32px] mb-4">
             <TextType text={p1} 
             typingSpeed={10} 
             pauseDuration={2000} 
@@ -39,7 +39,7 @@ const AboutMe: React.FC = () => {
             textColors={['var(--main)']}
             />
           </span>
-          <span className="text-xl mb-4">
+          <span className="text-[32px] mb-4">
             <TextType text={p2} 
             typingSpeed={10} 
             pauseDuration={2000} 
@@ -48,7 +48,7 @@ const AboutMe: React.FC = () => {
             textColors={['var(--main)']}
             />
           </span>
-          <span className="text-xl mb-4">
+          <span className="text-[32px] mb-4">
             <TextType text={p3} 
             typingSpeed={20} 
             pauseDuration={2000} 

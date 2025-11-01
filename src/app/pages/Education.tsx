@@ -16,17 +16,17 @@ const Education: React.FC = () => {
 
   return (
     <div className="text-foreground font-mono p-4 pt-16 bg-cline rounded-xl opacity-90">
-      <h1 className="text-6xl mb-4 text-main-100">
+      <h1 className="text-[96px] mb-4">
         <TextType text={Title} typingSpeed={20} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} />
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         <div>
-          <span className="text-xl mb-4">
+          <span className="text-[32px] mb-4">
             <TextType text={Description} typingSpeed={5} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} initialDelay={200}/>
           </span>
         </div>
         <div className="flex flex-col items-center">
-          <h2 className="text-2xl mb-2 text-main-85">
+          <h2 className="text-[32px] mb-2 text-main-85">
             <TextType text={University} typingSpeed={10} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} initialDelay={200}/>
           </h2>
           <PixelTransition
