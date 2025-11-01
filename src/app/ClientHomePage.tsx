@@ -117,7 +117,7 @@ export default function Home() {
         setOutput([]);
         break;
       default:
-        setError(`command not found: ${command}`);
+        setError(`${t.commandError} ${command}`);
         setOutput([]);
         break;
     }

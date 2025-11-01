@@ -5,14 +5,16 @@
       "name": "David Emmanuel Castillo Florez",
       "help": "Type 'help' or press F1 for available commands",
       "navigate": "Navigate through the pages with:",
-      "pages": ["AboutMe", "Projects", "Testimonies", "Education", "Contact"]
+      "pages": ["AboutMe", "Projects", "Testimonies", "Education", "Contact"],
+      "commandError": "command not found:"
     },
     "es": {
       "welcome": "Bienvenido a mi Portafolio",
       "name": "David Emmanuel Castillo Florez",
       "help": "Escribe 'help' o presiona F1 para ver los comandos disponibles",
       "navigate": "Navega a través de las páginas con:",
-      "pages": ["AboutMe", "Projects", "Testimonies", "Education", "Contact"]
+      "pages": ["AboutMe", "Projects", "Testimonies", "Education", "Contact"],
+      "commandError": "comando no encontrado:"
     }
   },
   "aboutme": {
