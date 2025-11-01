@@ -25,6 +25,8 @@ export default function Home() {
   const [tint, setTint] = useState('');
   const t = useMemo(() => translations.home[language] || translations.home.en, [language, translations]);
 
+  const WelcomeText = useMemo(() => Array.isArray(t.welcome) ? t.welcome : [t.welcome], [t.welcome]);
+
   useEffect(() => {
     const fetchTint = () => {
       const computedStyle = getComputedStyle(document.documentElement);
@@ -43,7 +45,23 @@ export default function Home() {
     return () => observer.disconnect();
   }, [theme]);
 
-  const WelcomeText = useMemo(() => Array.isArray(t.welcome) ? t.welcome : [t.welcome], [t.welcome]);
+  useEffect(() => {
+    if (error) {
+      const timer = setTimeout(() => {
+        setError('');
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [error]);
+
+  useEffect(() => {
+    if (error) {
+      const timer = setTimeout(() => {
+        setError('');
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [error]);
   const NameText = useMemo(() => Array.isArray(t.name) ? t.name : [t.name], [t.name]);
   const HelpText = useMemo(() => Array.isArray(t.help) ? t.help : [t.help], [t.help]);
   const NavigateText = useMemo(() => Array.isArray(t.navigate) ? t.navigate : [t.navigate], [t.navigate]);
@@ -273,7 +291,17 @@ export default function Home() {
               ))}
             </div>
           )}
-          {error && <div className="text-xl mt-2">{error}</div>}
+          {error && (
+            <div className="text-xl mt-2 p-1 rounded-xl bg-cline opacity-90">
+              <MemoizedTextType
+                text={error}
+                typingSpeed={10}
+                pauseDuration={2000}
+                showCursor={false}
+                textColors={['var(--error-color)']}
+              />
+            </div>
+          )}
           <form onSubmit={handleCommand} className="mt-2 flex items-center text-xl p-2 rounded-xl bg-cline opacity-90">
             <ul>
               <li>{'>_'}</li>
