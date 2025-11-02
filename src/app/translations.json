@@ -13,7 +13,7 @@
       "name": "David Emmanuel Castillo Florez",
       "help": "Escribe 'help' o presiona F1 para ver los comandos disponibles",
       "navigate": "Navega a través de las páginas con:",
-      "pages": ["Sobre Mí", "Proyectos", "Testimonios", "Educación", "Contacto"],
+      "pages": ["Sobre mi", "Proyectos", "Testimonios", "Educación", "Contacto"],
       "commandError": "comando no encontrado:"
     }
   },
