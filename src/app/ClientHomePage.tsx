@@ -157,7 +157,7 @@ export default function Home() {
         return (
           <>
           <div className='p-2 bg-cline rounded-xl opacity-85'>
-            <h1 className="text-[96px] items-center mb-4">
+            <h1 className="text-[48px] md:text-[96px] items-center mb-4">
               <TextType
                 text={WelcomeText}
                 typingSpeed={20}
@@ -166,7 +166,7 @@ export default function Home() {
                 textColors={['var(--main)']}
               />
             </h1>
-            <h2 className="text-[32px] mb-6">
+            <h2 className="text-[20px] md:text-[32px] mb-6">
               <TextType
                 text={NameText}
                 typingSpeed={10}
@@ -176,7 +176,7 @@ export default function Home() {
                 textColors={['var(--submain)']}
               />
               </h2>
-            <h3 className="text-[32px] mb-4">
+            <h3 className="text-[20px] md:text-[32px] mb-4">
               <TextType
                 text={HelpText}
                 typingSpeed={10}
@@ -186,7 +186,7 @@ export default function Home() {
                 textColors={['var(--main)']}
               />
               </h3>
-            <h3 className="text-[32px] mb-4">
+            <h3 className="text-[20px] md:text-[32px] mb-4">
               <TextType
                 text={NavigateText}
                 typingSpeed={10}
@@ -196,7 +196,7 @@ export default function Home() {
                 textColors={['var(--main)']}
               />
             </h3>
-            <ul className="list-none text-[32px] mb-6">
+            <ul className="list-none text-[20px] md:text-[32px] mb-6">
                 {Pages.map((page: string) => ((
                     <li key={page} className="mb-2">
                       <a href="#" className="hover:underline">
@@ -276,7 +276,7 @@ export default function Home() {
         </div>
         <div className="mt-auto">
           {output.length > 0 && (
-            <div className="text-[32px] mt-2 p-2 bg-cline rounded-xl opacity-90">
+            <div className="text-[20px] md:text-[32px] mt-2 p-2 bg-cline rounded-xl opacity-90">
               {output.map((line, index) => (
                 <div key={index}>
                   <MemoizedTextType
@@ -292,7 +292,7 @@ export default function Home() {
             </div>
           )}
           {error && (
-            <div className="text-[32px] mt-2 p-1 rounded-xl bg-cline opacity-90">
+            <div className="text-[20px] md:text-[32px] mt-2 p-1 rounded-xl bg-cline opacity-90">
               <MemoizedTextType
                 text={error}
                 typingSpeed={10}
@@ -302,7 +302,7 @@ export default function Home() {
               />
             </div>
           )}
-          <form onSubmit={handleCommand} className="mt-2 flex items-center text-[32px] p-2 rounded-xl bg-cline opacity-90">
+          <form onSubmit={handleCommand} className="mt-2 flex items-center text-[20px] md:text-[32px] p-2 rounded-xl bg-cline opacity-90">
             <ul>
               <li>{'>_'}</li>
             </ul>

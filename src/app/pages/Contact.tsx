@@ -17,10 +17,10 @@ const Contact: React.FC = () => {
 
   return (
     <div className="text-foreground font-mono p-4 pt-16 p-2 bg-cline rounded-xl opacity-85">
-      <h1 className="text-[96px] mb-4 text-main-100">
+      <h1 className="text-[48px] md:text-[96px] mb-4 text-main-100">
         <TextType text={Title} typingSpeed={40} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} />
       </h1>
-      <div className="flex flex-col space-y-4 text-[32px]">
+      <div className="flex flex-col space-y-4 text-[20px] md:text-[32px]">
         <span className="flex items-center">
           <Image src="/images/contacts/proton-mail-logo.svg" alt="Email" width={24} height={24} className="w-6 h-6 mr-2" />
           <TextType text={Email} typingSpeed={30} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} />

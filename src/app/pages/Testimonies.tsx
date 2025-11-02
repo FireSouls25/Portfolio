@@ -20,39 +20,39 @@ const Testimonies: React.FC = () => {
 
   return (
     <div className="text-foreground font-mono p-4 pt-16 bg-cline rounded-xl opacity-90">
-      <h1 className="text-[96px] mb-4 text-main-100">
+      <h1 className="text-[48px] md:text-[96px] mb-4 text-main-100">
         <TextType text={Title} typingSpeed={30} pauseDuration={2000} showCursor={false} textColors={['var(--main)']}/>
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div>
-          <span className="text-[32px] mb-4">
+          <span className="text-[20px] md:text-[32px] mb-4">
             <TextType text={Testimony1} typingSpeed={10} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} initialDelay={500}/>
           </span>
-          <span className="text-[32px] mb-4 text-main-70">
+          <span className="text-[20px] md:text-[32px] mb-4 text-main-70">
             <TextType text={Author1} typingSpeed={20} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} initialDelay={1800}/>
           </span>
         </div>
         <div>
-          <span className="text-[32px] mb-4">
+          <span className="text-[20px] md:text-[32px] mb-4">
             <TextType text={Testimony2} typingSpeed={10} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} initialDelay={1200}/>
           </span>
-          <span className="text-[32px] mb-4 text-main-70">
+          <span className="text-[20px] md:text-[32px] mb-4 text-main-70">
             <TextType text={Author2} typingSpeed={20} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} initialDelay={2500}/>
           </span>
         </div>
         <div>
-          <span className="text-[32px] mb-4">
+          <span className="text-[20px] md:text-[32px] mb-4">
             <TextType text={Testimony3} typingSpeed={10} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} initialDelay={2200}/>
           </span>
-          <span className="text-[32px] mb-4 text-main-70">
+          <span className="text-[20px] md:text-[32px] mb-4 text-main-70">
             <TextType text={Author3} typingSpeed={20} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} initialDelay={3800}/>
           </span>
         </div>
         <div>
-          <span className="text-[32px] mb-4">
+          <span className="text-[20px] md:text-[32px] mb-4">
             <TextType text={Testimony4} typingSpeed={10} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} initialDelay={3200}/>
           </span>
-          <span className="text-[32px] mb-4 text-main-70">
+          <span className="text-[20px] md:text-[32px] mb-4 text-main-70">
             <TextType text={Author4} typingSpeed={20} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} initialDelay={4200}/>
           </span>
         </div>
