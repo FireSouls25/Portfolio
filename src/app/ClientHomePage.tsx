@@ -86,7 +86,7 @@ export default function Home() {
 
   const handleCommand = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const cmd = command.trim().toLowerCase();
+    const cmd = command.trim().toLowerCase().replace(/\s/g, '').normalize('NFD').replace(/[\u0300-\u036f]/g, '');
     const englishCommand = commandMap[cmd];
 
     switch (englishCommand) {

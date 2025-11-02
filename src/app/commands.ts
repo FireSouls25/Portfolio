@@ -83,7 +83,7 @@ export const getCommandMap = (language: "en" | "es", translations: Translations)
   const commandMap: { [key: string]: string } = {};
   const commandsTranslations = translations.commands[language];
   for (const key in commandsTranslations) {
-    commandMap[commandsTranslations[key as CommandKey] as string] = translations.commands.en[key as CommandKey] as string;
+    commandMap[(commandsTranslations[key as CommandKey] as string).replace(/\s/g, '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')] = translations.commands.en[key as CommandKey] as string;
   }
   return commandMap;
 };
