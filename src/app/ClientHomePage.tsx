@@ -11,7 +11,7 @@ import Contact from './pages/Contact';
 import { useThemeLanguage } from './context/ThemeLanguageContext';
 import { useMediaQuery } from '@/app/hooks/useMediaQuery';
 import ImagePreloader from './components/ImagePreloader';
-import { getHelp } from './commands';
+import { getHelp, getCommandMap } from './commands';
 
 const MemoizedTextType = React.memo(TextType);
 
@@ -71,7 +71,7 @@ export default function Home() {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'F1') {
         event.preventDefault();
-        setOutput(prevOutput => (prevOutput.length > 0 ? [] : getHelp(language)));
+        setOutput(prevOutput => (prevOutput.length > 0 ? [] : getHelp(language, translations)));
       }
     };
 
@@ -80,13 +80,16 @@ export default function Home() {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [language]);
+  }, [language, translations]);
+
+  const commandMap = useMemo(() => getCommandMap(language, translations), [language, translations]);
 
   const handleCommand = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const cmd = command.trim().toLowerCase();
+    const englishCommand = commandMap[cmd];
 
-    switch (cmd) {
+    switch (englishCommand) {
       case 'theme light':
         setTheme('light');
         setOutput([]);
@@ -104,7 +107,7 @@ export default function Home() {
         setOutput([]);
         break;
       case 'help':
-        setOutput(getHelp(language));
+        setOutput(getHelp(language, translations));
         break;
       case 'clear':
         setOutput([]);

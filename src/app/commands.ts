@@ -1,10 +1,20 @@
-
-export type Command = "theme light" | "theme dark" | "lang es" | "lang en" | "help" | "home" | "aboutme" | "projects" | "testimonies" | "education" | "contact";
+export type CommandKey = "themeLight" | "themeDark" | "langEs" | "langEn" | "help" | "home" | "aboutme" | "projects" | "testimonies" | "education" | "contact" | "clear";
 
 interface CommandHelp {
   [key: string]: {
     en: string;
     es: string;
+  };
+}
+
+interface TranslationContent {
+  [key: string]: string | string[];
+}
+
+interface Translations {
+  [key: string]: {
+    en: TranslationContent;
+    es: TranslationContent;
   };
 }
 
@@ -53,12 +63,27 @@ const commandHelp: CommandHelp = {
     en: "Navigates to the Contact page.",
     es: "Navega a la página de Contacto.",
   },
+  "clear": {
+    en: "Clears the terminal output.",
+    es: "Limpia la salida de la terminal.",
+  },
 };
 
-export const getHelp = (language: "en" | "es"): string[] => {
-  return Object.keys(commandHelp).map(command => {
-    const description = commandHelp[command][language];
+export const getHelp = (language: "en" | "es", translations: Translations): string[] => {
+  const commandsTranslations = translations.commands[language];
+  return (Object.keys(commandsTranslations) as CommandKey[]).map(key => {
+    const command = commandsTranslations[key];
+    const englishCommandKey = translations.commands.en[key] as string;
+    const description = commandHelp[englishCommandKey][language];
     return `${command}: ${description}`;
   });
 };
 
+export const getCommandMap = (language: "en" | "es", translations: Translations): { [key: string]: string } => {
+  const commandMap: { [key: string]: string } = {};
+  const commandsTranslations = translations.commands[language];
+  for (const key in commandsTranslations) {
+    commandMap[commandsTranslations[key as CommandKey] as string] = translations.commands.en[key as CommandKey] as string;
+  }
+  return commandMap;
+};

@@ -13,7 +13,7 @@
       "name": "David Emmanuel Castillo Florez",
       "help": "Escribe 'help' o presiona F1 para ver los comandos disponibles",
       "navigate": "Navega a través de las páginas con:",
-      "pages": ["AboutMe", "Projects", "Testimonies", "Education", "Contact"],
+      "pages": ["Sobre Mí", "Proyectos", "Testimonios", "Educación", "Contacto"],
       "commandError": "comando no encontrado:"
     }
   },
@@ -101,6 +101,36 @@
       "github": "Github: FireSouls25",
       "linkedin": "LinkedIn: Ninguno",
       "cv": "Descargar Currículum"
+    }
+  },
+  "commands": {
+    "en": {
+      "help": "help",
+      "home": "home",
+      "aboutme": "aboutme",
+      "projects": "projects",
+      "testimonies": "testimonies",
+      "education": "education",
+      "contact": "contact",
+      "clear": "clear",
+      "themeLight": "theme light",
+      "themeDark": "theme dark",
+      "langEs": "lang es",
+      "langEn": "lang en"
+    },
+    "es": {
+      "help": "ayuda",
+      "home": "inicio",
+      "aboutme": "sobremi",
+      "projects": "proyectos",
+      "testimonies": "testimonios",
+      "education": "educacion",
+      "contact": "contacto",
+      "clear": "limpiar",
+      "themeLight": "tema claro",
+      "themeDark": "tema oscuro",
+      "langEs": "idioma es",
+      "langEn": "idioma en"
     }
   }
 }
