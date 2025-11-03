@@ -2,6 +2,7 @@
 
 
 import React, { useMemo } from 'react';
+import Image from 'next/image';
 import { useThemeLanguage } from '../context/ThemeLanguageContext';
 import TextType from '../components/TextType';
 
@@ -16,6 +17,15 @@ const Projects: React.FC = () => {
   const project2Desc = useMemo(() => Array.isArray(t.project2Desc) ? t.project2Desc : [t.project2Desc], [t.project2Desc]);
   const project3Title = useMemo(() => Array.isArray(t.project3Title) ? t.project3Title : [t.project3Title], [t.project3Title]);
   const project3Desc = useMemo(() => Array.isArray(t.project3Desc) ? t.project3Desc : [t.project3Desc], [t.project3Desc]);
+  const project1Link = useMemo(() => Array.isArray(t.project1Link) ? t.project1Link : [t.project1Link], [t.project1Link]);
+  const project1Github = useMemo(() => Array.isArray(t.project1Github) ? t.project1Github : [t.project1Github], [t.project1Github]);
+  const project1GithubText = useMemo(() => Array.isArray(t.project1GithubText) ? t.project1GithubText : [t.project1GithubText], [t.project1GithubText]);
+  const project2Link = useMemo(() => Array.isArray(t.project2Link) ? t.project2Link : [t.project2Link], [t.project2Link]);
+  const project2Github = useMemo(() => Array.isArray(t.project2Github) ? t.project2Github : [t.project2Github], [t.project2Github]);
+  const project2GithubText = useMemo(() => Array.isArray(t.project2GithubText) ? t.project2GithubText : [t.project2GithubText], [t.project2GithubText]);
+  const project3Link = useMemo(() => Array.isArray(t.project3Link) ? t.project3Link : [t.project3Link], [t.project3Link]);
+  const project3Github = useMemo(() => Array.isArray(t.project3Github) ? t.project3Github : [t.project3Github], [t.project3Github]);
+  const project3GithubText = useMemo(() => Array.isArray(t.project3GithubText) ? t.project3GithubText : [t.project3GithubText], [t.project3GithubText]);
 
   return (
     <div className="text-foreground font-mono p-4 pt-16 bg-cline rounded-xl opacity-90">
@@ -30,8 +40,16 @@ const Projects: React.FC = () => {
           <span className="text-[20px] md:text-[32px] mb-4">
             <TextType text={project1Desc} typingSpeed={10} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} initialDelay={400}/>
           </span>
-          <img src="/images/projects/3D_calculator.webp" alt="3D Graphic Calculator" 
-               className="w-full h-auto object-cover rounded rounded-xl border-2 border-green-600" />
+          <a href={project1Link[0]} target="_blank" rel="noopener noreferrer">
+            <img src="/images/projects/3D_calculator.webp" alt="3D Graphic Calculator" 
+                 className="w-full h-auto object-cover rounded rounded-xl border-2 border-green-600" />
+          </a>
+          <div className="flex items-center mt-2">
+            <a href={project1Github[0]} target="_blank" rel="noopener noreferrer" className="flex items-center">
+              <Image src="/images/contacts/github-logo.svg" alt="Github" width={24} height={24} className="w-6 h-6 mr-2" />
+              <span className="text-[16px] md:text-[24px] text-main-85">{project1GithubText[0]}</span>
+            </a>
+          </div>
         </div>
         <div className="flex flex-col items-center text-center">
           <h2 className="text-[28px] md:text-[46px] mb-2 text-main-85">
@@ -40,9 +58,18 @@ const Projects: React.FC = () => {
           <span className="text-[20px] md:text-[32px] mb-4">
             <TextType text={project2Desc} typingSpeed={10} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} initialDelay={2200}/>
           </span>
-          <img src="/images/projects/project2.webp" 
-               className="w-full h-auto object-cover rounded rounded-xl border-2 border-green-600" />
+          <a href={project2Link[0]} target="_blank" rel="noopener noreferrer">
+            <img src="/images/projects/project2.webp" 
+                 className="w-full h-auto object-cover rounded rounded-xl border-2 border-green-600" />
+          </a>
+          <div className="flex items-center mt-2">
+            <a href={project2Github[0]} target="_blank" rel="noopener noreferrer" className="flex items-center">
+              <Image src="/images/contacts/github-logo.svg" alt="Github" width={24} height={24} className="w-6 h-6 mr-2" />
+              <span className="text-[16px] md:text-[24px] text-main-85">{project2GithubText[0]}</span>
+            </a>
+          </div>
         </div>
+        
         <div className="flex flex-col items-center text-center">
           <h2 className="text-[28px] md:text-[46px] mb-2 text-main-85">
             <TextType text={project3Title} typingSpeed={30} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} initialDelay={4100}/>
@@ -50,8 +77,16 @@ const Projects: React.FC = () => {
           <span className="text-[20px] md:text-[32px] mb-4">
             <TextType text={project3Desc} typingSpeed={10} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} initialDelay={4300}/>
           </span>
-          <img src="/images/projects/settings.webp" 
-               className="w-96 h-auto object-cover rounded rounded-xl border-2 border-green-600" />
+          <a href={project3Link[0]} target="_blank" rel="noopener noreferrer">
+            <img src="/images/projects/settings.webp" 
+                 className="w-96 h-auto object-cover rounded rounded-xl border-2 border-green-600" />
+          </a>
+          <div className="flex items-center mt-2">
+            <a href={project3Github[0]} target="_blank" rel="noopener noreferrer" className="flex items-center">
+              <Image src="/images/contacts/github-logo.svg" alt="Github" width={24} height={24} className="w-6 h-6 mr-2" />
+              <span className="text-[16px] md:text-[24px] text-main-85">{project3GithubText[0]}</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>

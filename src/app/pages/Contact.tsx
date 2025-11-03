@@ -13,7 +13,7 @@ const Contact: React.FC = () => {
   const Email = useMemo(() => Array.isArray(t.email) ? t.email : [t.email], [t.email]);
   const Github = useMemo(() => Array.isArray(t.github) ? t.github : [t.github], [t.github]);
   const Linkedin = useMemo(() => Array.isArray(t.linkedin) ? t.linkedin : [t.linkedin], [t.linkedin]);
-  const Cv = useMemo(() => Array.isArray(t.cv) ? t.cv : [t.cv], [t.cv]);
+
 
   return (
     <div className="text-foreground font-mono p-4 pt-16 p-2 bg-cline rounded-xl opacity-85">
@@ -33,10 +33,7 @@ const Contact: React.FC = () => {
           <Image src="/images/contacts/linkedin-logo.svg" alt="LinkedIn" width={24} height={24} className="w-6 h-6 mr-2" />
           <TextType text={Linkedin} typingSpeed={30} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} />
         </span>
-        <span className="flex items-center">
-          <Image src="/images/contacts/download-logo.svg" alt="Download CV" width={24} height={24} className="w-6 h-6 mr-2" />
-          <TextType text={Cv} typingSpeed={30} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} />
-        </span>
+
       </div>
     </div>
   );
