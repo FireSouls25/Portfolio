@@ -18,6 +18,7 @@ const AboutMe: React.FC = () => {
   const p2 = useMemo(() => Array.isArray(t.p2) ? t.p2 : [t.p2], [t.p2]);
   const p3 = useMemo(() => Array.isArray(t.p3) ? t.p3 : [t.p3], [t.p3]);
   const Cv = useMemo(() => Array.isArray(t?.cv) ? t.cv : [t?.cv || ''], [t.cv]);
+  const cvPath = useMemo(() => Array.isArray(t.cvPath) ? t.cvPath[0] : t.cvPath, [t.cvPath]);
 
   return (
     <div className="text-foreground font-mono p-4 pt-16">
@@ -60,8 +61,8 @@ const AboutMe: React.FC = () => {
             />
           </span>
         </div>
-        <span className="flex items-center p-2 bg-cline rounded-xl opacity-85">
-          <a href="/your-cv.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center">
+        <span className="flex text-[32px] items-center p-2 bg-cline rounded-xl opacity-85">
+          <a href={cvPath} target="_blank" rel="noopener noreferrer" className="flex items-center">
             <Image src="/images/contacts/download-logo.svg" alt="Download CV" width={24} height={24} className="w-6 h-6 mr-2" />
             <TextType text={Cv} typingSpeed={30} pauseDuration={2000} showCursor={false} textColors={['var(--main)']}/>
           </a>
