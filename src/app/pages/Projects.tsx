@@ -4,7 +4,8 @@
 import React, { useMemo } from 'react';
 import Image from 'next/image';
 import { useThemeLanguage } from '../context/ThemeLanguageContext';
-import TextType from '../components/TextType';
+import { MemoizedTextType } from '../components/MemoizedTextType';
+
 
 const Projects: React.FC = () => {
   const { language, translations } = useThemeLanguage();
@@ -30,15 +31,15 @@ const Projects: React.FC = () => {
   return (
     <div className="text-foreground font-mono p-4 pt-16 bg-cline rounded-xl opacity-90">
       <h1 className="text-[48px] md:text-[96px] mb-4">
-        <TextType text={title} typingSpeed={30} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} />
+        <MemoizedTextType text={title} typingSpeed={30} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} />
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div className="flex flex-col items-center text-center">
           <h2 className="text-[28px] md:text-[46px] mb-2 text-main-85">
-            <TextType text={project1Title} typingSpeed={30} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} initialDelay={200}/>
+            <MemoizedTextType text={project1Title} typingSpeed={30} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} initialDelay={200}/>
           </h2>
           <span className="text-[20px] md:text-[32px] mb-4">
-            <TextType text={project1Desc} typingSpeed={10} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} initialDelay={400}/>
+            <MemoizedTextType text={project1Desc} typingSpeed={10} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} initialDelay={400}/>
           </span>
           <a href={project1Link[0]} target="_blank" rel="noopener noreferrer">
             <img src="/images/projects/3D_calculator.webp" alt="3D Graphic Calculator" 
@@ -53,10 +54,10 @@ const Projects: React.FC = () => {
         </div>
         <div className="flex flex-col items-center text-center">
           <h2 className="text-[28px] md:text-[46px] mb-2 text-main-85">
-            <TextType text={project2Title} typingSpeed={30} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} initialDelay={2000}/>
+            <MemoizedTextType text={project2Title} typingSpeed={30} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} initialDelay={2000}/>
           </h2>
           <span className="text-[20px] md:text-[32px] mb-4">
-            <TextType text={project2Desc} typingSpeed={10} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} initialDelay={2200}/>
+            <MemoizedTextType text={project2Desc} typingSpeed={10} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} initialDelay={2200}/>
           </span>
           <a href={project2Link[0]} target="_blank" rel="noopener noreferrer">
             <img src="/images/projects/project2.webp" 
@@ -72,10 +73,10 @@ const Projects: React.FC = () => {
         
         <div className="flex flex-col items-center text-center">
           <h2 className="text-[28px] md:text-[46px] mb-2 text-main-85">
-            <TextType text={project3Title} typingSpeed={30} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} initialDelay={4100}/>
+            <MemoizedTextType text={project3Title} typingSpeed={30} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} initialDelay={4100}/>
           </h2>
           <span className="text-[20px] md:text-[32px] mb-4">
-            <TextType text={project3Desc} typingSpeed={10} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} initialDelay={4300}/>
+            <MemoizedTextType text={project3Desc} typingSpeed={10} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} initialDelay={4300}/>
           </span>
           <a href={project3Link[0]} target="_blank" rel="noopener noreferrer">
             <img src="/images/projects/map_app.webp" 

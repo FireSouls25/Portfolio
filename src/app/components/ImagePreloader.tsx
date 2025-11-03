@@ -1,20 +1,48 @@
 'use client';
 
-import React from 'react';
-import Head from 'next/head';
+import { useEffect, useState } from 'react';
+import Loader from './Loader';
 
 interface ImagePreloaderProps {
-  images: string[];
+  imageUrls: string[];
+  children: React.ReactNode;
 }
 
-const ImagePreloader: React.FC<ImagePreloaderProps> = ({ images }) => {
-  return (
-    <Head>
-      {images.map((image, i) => (
-        <link key={i} rel="preload" as="image" href={image} />
-      ))}
-    </Head>
-  );
+const ImagePreloader: React.FC<ImagePreloaderProps> = ({ imageUrls, children }) => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    let loadedCount = 0;
+    const totalImages = imageUrls.length;
+
+    if (totalImages === 0) {
+      setLoading(false);
+      return;
+    }
+
+    imageUrls.forEach(url => {
+      const img = new Image();
+      img.src = url;
+      img.onload = () => {
+        loadedCount++;
+        if (loadedCount === totalImages) {
+          setLoading(false);
+        }
+      };
+      img.onerror = () => {
+        loadedCount++;
+        if (loadedCount === totalImages) {
+          setLoading(false);
+        }
+      };
+    });
+  }, [imageUrls]);
+
+  if (loading) {
+    return <Loader />;
+  }
+
+  return <>{children}</>;
 };
 
 export default ImagePreloader;

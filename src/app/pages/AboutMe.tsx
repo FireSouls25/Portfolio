@@ -5,7 +5,7 @@ import React, { useMemo } from 'react';
 import Image from 'next/image';
 import { useThemeLanguage } from '../context/ThemeLanguageContext';
 import { useMediaQuery } from '../hooks/useMediaQuery';
-import TextType from '../components/TextType';
+import { MemoizedTextType } from '../components/MemoizedTextType';
 import PixelTransition from '../components/PixelTransition';
 
 const AboutMe: React.FC = () => {
@@ -26,7 +26,7 @@ const AboutMe: React.FC = () => {
       <div className="flex flex-col gap-8">
         <div className="flex flex-col p-2 bg-cline rounded-xl opacity-85">
           <h1 className="text-[48px] md:text-[96px] mb-4">
-            <TextType text={title} 
+            <MemoizedTextType text={title} 
             typingSpeed={60} 
             pauseDuration={2000} 
             showCursor={false} 
@@ -34,7 +34,7 @@ const AboutMe: React.FC = () => {
             />
           </h1>
           <span className="text-[20px] md:text-[32px] mb-4">
-            <TextType text={p1} 
+            <MemoizedTextType text={p1} 
             typingSpeed={10} 
             pauseDuration={2000} 
             showCursor={false} 
@@ -43,7 +43,7 @@ const AboutMe: React.FC = () => {
             />
           </span>
           <span className="text-[20px] md:text-[32px] mb-4">
-            <TextType text={p2} 
+            <MemoizedTextType text={p2} 
             typingSpeed={10} 
             pauseDuration={2000} 
             showCursor={false} 
@@ -52,7 +52,7 @@ const AboutMe: React.FC = () => {
             />
           </span>
           <span className="text-[20px] md:text-[32px] mb-4">
-            <TextType text={p3} 
+            <MemoizedTextType text={p3} 
             typingSpeed={20} 
             pauseDuration={2000} 
             showCursor={false} 
@@ -64,7 +64,7 @@ const AboutMe: React.FC = () => {
         <span className="flex text-[32px] items-center p-2 bg-cline rounded-xl opacity-85">
           <a href={cvPath} target="_blank" rel="noopener noreferrer" className="flex items-center">
             <Image src="/images/contacts/download-logo.svg" alt="Download CV" width={24} height={24} className="w-6 h-6 mr-2" />
-            <TextType text={Cv} typingSpeed={30} pauseDuration={2000} showCursor={false} textColors={['var(--main)']}/>
+            <MemoizedTextType text={Cv} typingSpeed={30} pauseDuration={2000} showCursor={false} textColors={['var(--main)']}/>
           </a>
         </span>
         

@@ -2,18 +2,19 @@
 
 import TextType from './components/TextType';
 import FaultyTerminal from './components/FaultyTerminal';
-import React, { useState, useMemo, useEffect } from 'react';
-import AboutMe from './pages/AboutMe';
-import Projects from './pages/Projects';
-import Testimonies from './pages/Testimonies';
-import Education from './pages/Education';
-import Contact from './pages/Contact';
+import React, { useState, useMemo, useEffect, Suspense, lazy } from 'react';
+const AboutMe = lazy(() => import('./pages/AboutMe'));
+const Projects = lazy(() => import('./pages/Projects'));
+const Testimonies = lazy(() => import('./pages/Testimonies'));
+const Education = lazy(() => import('./pages/Education'));
+const Contact = lazy(() => import('./pages/Contact'));
+import Loader from './components/Loader';
 import { useThemeLanguage } from './context/ThemeLanguageContext';
 import { useMediaQuery } from '@/app/hooks/useMediaQuery';
 import ImagePreloader from './components/ImagePreloader';
 import { getHelp, getCommandMap } from './commands';
 
-const MemoizedTextType = React.memo(TextType);
+import { MemoizedTextType } from './components/MemoizedTextType';
 
 export default function Home() {
   const { theme, language, translations, setTheme, setLanguage } = useThemeLanguage();
@@ -247,8 +248,8 @@ export default function Home() {
   ];
 
   return (
-    <div className="h-screen w-full bg-background text-foreground font-mono flex items-center justify-center relative overflow-hidden p-4">
-      <ImagePreloader images={imagesToPreload} />
+    <ImagePreloader imageUrls={imagesToPreload}>
+      <div className="h-screen w-full bg-background text-foreground font-mono flex items-center justify-center relative overflow-hidden p-4">
         <div className="fixed inset-0 z-0">
           {useMemo(() => !isMobile ? (
             <FaultyTerminal
@@ -273,52 +274,55 @@ export default function Home() {
             <div className="h-screen w-full bg-background" />
           ), [isMobile, faultyTerminalProps])}
         </div>
-      <div className={`w-full h-full flex flex-col text-left p-8 relative z-10 ${isMobile ? 'p-4' : 'p-12'}`}>
-        <div className="flex-grow overflow-y-auto">
-          {renderPageContent()}
-        </div>
-        <div className="mt-auto">
-          {output.length > 0 && (
-            <div className="text-[20px] md:text-[32px] mt-2 p-2 bg-cline rounded-xl opacity-90">
-              {output.map((line, index) => (
-                <div key={index}>
-                  <MemoizedTextType
-                    text={line}
-                    typingSpeed={10}
-                    pauseDuration={2000}
-                    showCursor={false}
-                    initialDelay={index * 100}
-                    textColors={['var(--submain-70)']}
-                  />
-                </div>
-              ))}
-            </div>
-          )}
-          {error && (
-            <div className="text-[20px] md:text-[32px] mt-2 p-1 rounded-xl bg-cline opacity-90">
-              <MemoizedTextType
-                text={error}
-                typingSpeed={10}
-                pauseDuration={2000}
-                showCursor={false}
-                textColors={['var(--error-color)']}
+        <div className={`w-full h-full flex flex-col text-left p-8 relative z-10 ${isMobile ? 'p-4' : 'p-12'}`}>
+          <Suspense fallback={<Loader />}>
+          <div className="flex-grow overflow-y-auto">
+            {renderPageContent()}
+          </div>
+        </Suspense>
+          <div className="mt-auto">
+            {output.length > 0 && (
+              <div className="text-[20px] md:text-[32px] mt-2 p-2 bg-cline rounded-xl opacity-90">
+                {output.map((line, index) => (
+                  <div key={index}>
+                    <MemoizedTextType
+                      text={line}
+                      typingSpeed={10}
+                      pauseDuration={2000}
+                      showCursor={false}
+                      initialDelay={index * 100}
+                      textColors={['var(--submain-70)']}
+                    />
+                  </div>
+                ))}
+              </div>
+            )}
+            {error && (
+              <div className="text-[20px] md:text-[32px] mt-2 p-1 rounded-xl bg-cline opacity-90">
+                <MemoizedTextType
+                  text={error}
+                  typingSpeed={10}
+                  pauseDuration={2000}
+                  showCursor={false}
+                  textColors={['var(--error-color)']}
+                />
+              </div>
+            )}
+            <form onSubmit={handleCommand} className="mt-2 flex items-center text-[20px] md:text-[32px] p-2 rounded-xl bg-cline opacity-90">
+              <ul>
+                <li>{'>_'}</li>
+              </ul>
+              <input
+                type="text"
+                value={command}
+                onChange={(e) => setCommand(e.target.value)}
+                className="bg-transparent border-none outline-none w-full ml-2"
+                autoFocus
               />
-            </div>
-          )}
-          <form onSubmit={handleCommand} className="mt-2 flex items-center text-[20px] md:text-[32px] p-2 rounded-xl bg-cline opacity-90">
-            <ul>
-              <li>{'>_'}</li>
-            </ul>
-            <input
-              type="text"
-              value={command}
-              onChange={(e) => setCommand(e.target.value)}
-              className="bg-transparent border-none outline-none w-full ml-2"
-              autoFocus
-            />
-          </form>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
+    </ImagePreloader>
   );
 }
