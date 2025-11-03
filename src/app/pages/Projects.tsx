@@ -78,7 +78,7 @@ const Projects: React.FC = () => {
             <TextType text={project3Desc} typingSpeed={10} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} initialDelay={4300}/>
           </span>
           <a href={project3Link[0]} target="_blank" rel="noopener noreferrer">
-            <img src="/images/projects/settings.webp" 
+            <img src="/images/projects/map_app.webp" 
                  className="w-96 h-auto object-cover rounded rounded-xl border-2 border-green-600" />
           </a>
           <div className="flex items-center mt-2">
