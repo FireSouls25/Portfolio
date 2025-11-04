@@ -35,3 +35,20 @@ body {
     --font-sans: var(--font-geist-sans);
     --font-mono: var(--font-geist-mono);
 }
+
+@keyframes shine {
+  0% {
+    box-shadow: 0 0 5px var(--main), 0 0 10px var(--main);
+  }
+  50% {
+    box-shadow: 0 0 10px var(--main), 0 0 30px var(--main);
+  }
+  100% {
+    box-shadow: 0 0 5px var(--main), 0 0 10px var(--main);
+  }
+}
+
+.shine-effect {
+  animation: shine 1s infinite;
+}
+
