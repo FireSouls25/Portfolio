@@ -79,11 +79,18 @@ export const getHelp = (language: "en" | "es", translations: Translations): stri
   });
 };
 
-export const getCommandMap = (language: "en" | "es", translations: Translations): { [key: string]: string } => {
+export const getCommandMap = (translations: Translations): { [key: string]: string } => {
   const commandMap: { [key: string]: string } = {};
-  const commandsTranslations = translations.commands[language];
-  for (const key in commandsTranslations) {
-    commandMap[(commandsTranslations[key as CommandKey] as string).replace(/\s/g, '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')] = translations.commands.en[key as CommandKey] as string;
+  const enCommands = translations.commands.en;
+  const esCommands = translations.commands.es;
+
+  for (const key in enCommands) {
+    const enCommand = (enCommands[key as CommandKey] as string).replace(/\s/g, '').normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    const esCommand = (esCommands[key as CommandKey] as string).replace(/\s/g, '').normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    const englishCommandKey = enCommands[key as CommandKey] as string;
+    
+    commandMap[enCommand] = englishCommandKey;
+    commandMap[esCommand] = englishCommandKey;
   }
   return commandMap;
 };

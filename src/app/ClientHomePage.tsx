@@ -69,7 +69,7 @@ export default function Home() {
     };
   }, [language, translations]);
 
-  const commandMap = useMemo(() => getCommandMap(language, translations), [language, translations]);
+  const commandMap = useMemo(() => getCommandMap(translations), [translations]);
 
   const handleCommand = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
