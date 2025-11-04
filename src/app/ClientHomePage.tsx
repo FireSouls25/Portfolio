@@ -1,20 +1,15 @@
 'use client';
 
-import TextType from './components/TextType';
+import React, { useState, useMemo, useEffect } from 'react';
 import FaultyTerminal from './components/FaultyTerminal';
-import React, { useState, useMemo, useEffect, Suspense, lazy } from 'react';
-const AboutMe = lazy(() => import('./pages/AboutMe'));
-const Projects = lazy(() => import('./pages/Projects'));
-const Testimonies = lazy(() => import('./pages/Testimonies'));
-const Education = lazy(() => import('./pages/Education'));
-const Contact = lazy(() => import('./pages/Contact'));
-import Loader from './components/Loader';
 import { useThemeLanguage } from './context/ThemeLanguageContext';
 import { useMediaQuery } from '@/app/hooks/useMediaQuery';
 import ImagePreloader from './components/ImagePreloader';
 import { getHelp, getCommandMap } from './commands';
-
-import { MemoizedTextType } from './components/MemoizedTextType';
+import PageContent from './components/home/PageContent';
+import CommandInput from './components/home/CommandInput';
+import OutputDisplay from './components/home/OutputDisplay';
+import HomeContent from './components/home/HomeContent';
 
 export default function Home() {
   const { theme, language, translations, setTheme, setLanguage } = useThemeLanguage();
@@ -27,6 +22,10 @@ export default function Home() {
   const t = useMemo(() => translations.home[language] || translations.home.en, [language, translations]);
 
   const WelcomeText = useMemo(() => Array.isArray(t.welcome) ? t.welcome : [t.welcome], [t.welcome]);
+  const NameText = useMemo(() => Array.isArray(t.name) ? t.name : [t.name], [t.name]);
+  const HelpText = useMemo(() => Array.isArray(t.help) ? t.help : [t.help], [t.help]);
+  const NavigateText = useMemo(() => Array.isArray(t.navigate) ? t.navigate : [t.navigate], [t.navigate]);
+  const Pages = useMemo(() => Array.isArray(t.pages) ? t.pages : [t.pages], [t.pages]);
 
   useEffect(() => {
     const fetchTint = () => {
@@ -54,19 +53,6 @@ export default function Home() {
       return () => clearTimeout(timer);
     }
   }, [error]);
-
-  useEffect(() => {
-    if (error) {
-      const timer = setTimeout(() => {
-        setError('');
-      }, 3000);
-      return () => clearTimeout(timer);
-    }
-  }, [error]);
-  const NameText = useMemo(() => Array.isArray(t.name) ? t.name : [t.name], [t.name]);
-  const HelpText = useMemo(() => Array.isArray(t.help) ? t.help : [t.help], [t.help]);
-  const NavigateText = useMemo(() => Array.isArray(t.navigate) ? t.navigate : [t.navigate], [t.navigate]);
-  const Pages = useMemo(() => Array.isArray(t.pages) ? t.pages : [t.pages], [t.pages]);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -155,86 +141,6 @@ export default function Home() {
       tint: tint,
     }), [theme, tint]);
 
-  const renderPageContent = () => {
-    switch (currentPage) {
-      case 'home':
-        return (
-          <>
-          <div className='p-2 bg-cline rounded-xl opacity-85'>
-            <h1 className="text-[48px] md:text-[96px] items-center mb-4">
-              <TextType
-                text={WelcomeText}
-                typingSpeed={20}
-                pauseDuration={2000}
-                showCursor={false}
-                textColors={['var(--main)']}
-              />
-            </h1>
-            <h2 className="text-[20px] md:text-[32px] mb-6">
-              <TextType
-                text={NameText}
-                typingSpeed={10}
-                pauseDuration={2000}
-                showCursor={false}
-                initialDelay={700}
-                textColors={['var(--submain)']}
-              />
-              </h2>
-            <h3 className="text-[20px] md:text-[32px] mb-4">
-              <TextType
-                text={HelpText}
-                typingSpeed={10}
-                pauseDuration={2000}
-                showCursor={false}
-                initialDelay={1400}
-                textColors={['var(--main)']}
-              />
-              </h3>
-            <h3 className="text-[20px] md:text-[32px] mb-4">
-              <TextType
-                text={NavigateText}
-                typingSpeed={10}
-                pauseDuration={2000}
-                showCursor={false}
-                initialDelay={1400}
-                textColors={['var(--main)']}
-              />
-            </h3>
-            <ul className="list-none text-[20px] md:text-[32px] mb-6">
-                {Pages.map((page: string) => ((
-                    <li key={page} className="mb-2">
-                      <a href="#" className="hover:underline">
-                        <TextType
-                          text={[page]}
-                          typingSpeed={20}
-                          pauseDuration={2000}
-                          showCursor={false}
-                          initialDelay={2200}
-                          textColors={['var(--submain-70)']}
-                        />
-                      </a>
-                    </li>
-                  )
-                ))}
-              </ul>
-          </div>
-          </>
-        );
-      case 'aboutme':
-        return <AboutMe />;
-      case 'projects':
-        return <Projects />;
-      case 'testimonies':
-        return <Testimonies />;
-      case 'education':
-        return <Education />;
-      case 'contact':
-        return <Contact />;
-      default:
-        return null;
-    }
-  };
-
   const imagesToPreload = [
     '/images/aboutme/dog.webp',
     '/images/aboutme/me_working.webp',
@@ -246,6 +152,16 @@ export default function Home() {
     '/images/education/ucc_logo.svg',
     '/images/education/ucc_pasto.webp',
   ];
+
+  const homeContent = (
+    <HomeContent
+      welcomeText={WelcomeText}
+      nameText={NameText}
+      helpText={HelpText}
+      navigateText={NavigateText}
+      pages={Pages}
+    />
+  );
 
   return (
     <ImagePreloader imageUrls={imagesToPreload}>
@@ -266,6 +182,7 @@ export default function Home() {
               dither={0}
               curvature={0.1}
               mouseReact={false}
+      
               mouseStrength={0}
               pageLoadAnimation={false}
               {...faultyTerminalProps}
@@ -275,51 +192,10 @@ export default function Home() {
           ), [isMobile, faultyTerminalProps])}
         </div>
         <div className={`w-full h-full flex flex-col text-left p-8 relative z-10 ${isMobile ? 'p-4' : 'p-12'}`}>
-          <Suspense fallback={<Loader />}>
-          <div className="flex-grow overflow-y-auto">
-            {renderPageContent()}
-          </div>
-        </Suspense>
+          <PageContent currentPage={currentPage} homeContent={homeContent} />
           <div className="mt-auto">
-            {output.length > 0 && (
-              <div className="text-[20px] md:text-[32px] mt-2 p-2 bg-cline rounded-xl opacity-90">
-                {output.map((line, index) => (
-                  <div key={index}>
-                    <MemoizedTextType
-                      text={line}
-                      typingSpeed={10}
-                      pauseDuration={2000}
-                      showCursor={false}
-                      initialDelay={index * 100}
-                      textColors={['var(--submain-70)']}
-                    />
-                  </div>
-                ))}
-              </div>
-            )}
-            {error && (
-              <div className="text-[20px] md:text-[32px] mt-2 p-1 rounded-xl bg-cline opacity-90">
-                <MemoizedTextType
-                  text={error}
-                  typingSpeed={10}
-                  pauseDuration={2000}
-                  showCursor={false}
-                  textColors={['var(--error-color)']}
-                />
-              </div>
-            )}
-            <form onSubmit={handleCommand} className="mt-2 flex items-center text-[20px] md:text-[32px] p-2 rounded-xl bg-cline opacity-90">
-              <ul>
-                <li>{'>_'}</li>
-              </ul>
-              <input
-                type="text"
-                value={command}
-                onChange={(e) => setCommand(e.target.value)}
-                className="bg-transparent border-none outline-none w-full ml-2"
-                autoFocus
-              />
-            </form>
+            <OutputDisplay output={output} error={error} />
+            <CommandInput command={command} handleCommand={handleCommand} setCommand={setCommand} />
           </div>
         </div>
       </div>
