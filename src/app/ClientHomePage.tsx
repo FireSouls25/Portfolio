@@ -71,10 +71,9 @@ export default function Home() {
 
   const commandMap = useMemo(() => getCommandMap(translations), [translations]);
 
-  const handleCommand = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const cmd = command.trim().toLowerCase().replace(/\s/g, '').normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-    const englishCommand = commandMap[cmd];
+  const handleCommand = (cmd: string) => {
+    const commandToProcess = cmd.trim().toLowerCase().replace(/\s/g, '').normalize('NFD').replace(/[\u0300-\u036F]/g, '');
+    const englishCommand = commandMap[commandToProcess];
 
     switch (englishCommand) {
       case 'theme light':
@@ -125,12 +124,17 @@ export default function Home() {
         setOutput([]);
         break;
       default:
-        setError(`${t.commandError} ${command}`);
+        setError(`${t.commandError} ${cmd}`);
         setOutput([]);
         break;
     }
     
     setCommand('');
+  };
+
+  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    handleCommand(command);
   };
 
   const faultyTerminalProps = useMemo(() => (theme === 'dark'
