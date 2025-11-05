@@ -8,14 +8,7 @@
       "pages": ["AboutMe", "Projects", "Testimonies", "Education", "Contact"],
       "commandError": "command not found:",
       "helpButton": {
-        "title": "Help",
-        "theme": "Theme",
-        "dark": "Dark",
-        "light": "Light",
-        "language": "Language",
-        "english": "English",
-        "spanish": "Spanish",
-        "navigation": "Navigation"
+        
       }
     },
     "es": {
@@ -24,9 +17,22 @@
       "help": "Escribe 'help' o presiona F1 para ver los comandos disponibles",
       "navigate": "Navega a través de las páginas con:",
       "pages": ["Sobre mi", "Proyectos", "Testimonios", "Educación", "Contacto"],
-      "commandError": "comando no encontrado:",
-      "helpButton": {
-        "title": "Ayuda",
+      "commandError": "comando no encontrado:"
+    }
+  },
+  "helpButton": {
+    "en":{
+      "title": "Help",
+        "theme": "Theme",
+        "dark": "Dark",
+        "light": "Light",
+        "language": "Language",
+        "english": "English",
+        "spanish": "Spanish",
+        "navigation": "Navigation"
+        },
+    "es": {
+      "title": "Ayuda",
         "theme": "Tema",
         "dark": "Oscuro",
         "light": "Claro",
@@ -34,9 +40,9 @@
         "english": "Inglés",
         "spanish": "Español",
         "navigation": "Navegación"
-      }
-    }
-  },
+        }
+      },
+
   "aboutme": {
     "en": {
       "title": "About Me",
