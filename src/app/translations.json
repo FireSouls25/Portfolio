@@ -6,7 +6,17 @@
       "help": "Type 'help' or press F1 for available commands",
       "navigate": "Navigate through the pages with:",
       "pages": ["AboutMe", "Projects", "Testimonies", "Education", "Contact"],
-      "commandError": "command not found:"
+      "commandError": "command not found:",
+      "helpButton": {
+        "title": "Help",
+        "theme": "Theme",
+        "dark": "Dark",
+        "light": "Light",
+        "language": "Language",
+        "english": "English",
+        "spanish": "Spanish",
+        "navigation": "Navigation"
+      }
     },
     "es": {
       "welcome": "Bienvenido a mi Portafolio",
@@ -14,7 +24,17 @@
       "help": "Escribe 'help' o presiona F1 para ver los comandos disponibles",
       "navigate": "Navega a través de las páginas con:",
       "pages": ["Sobre mi", "Proyectos", "Testimonios", "Educación", "Contacto"],
-      "commandError": "comando no encontrado:"
+      "commandError": "comando no encontrado:",
+      "helpButton": {
+        "title": "Ayuda",
+        "theme": "Tema",
+        "dark": "Oscuro",
+        "light": "Claro",
+        "language": "Idioma",
+        "english": "Inglés",
+        "spanish": "Español",
+        "navigation": "Navegación"
+      }
     }
   },
   "aboutme": {

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useThemeLanguage } from '../../context/ThemeLanguageContext';
 
 interface HelpButtonProps {
@@ -10,7 +10,9 @@ interface HelpButtonProps {
 const HelpButton: React.FC<HelpButtonProps> = ({ handleCommand }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [shine, setShine] = useState(true);
-  const { theme, setTheme, language, setLanguage } = useThemeLanguage();
+  const { theme, setTheme, language, setLanguage, translations } = useThemeLanguage();
+
+  const t = useMemo(() => translations.home[language]?.helpButton || translations.home.en.helpButton, [language, translations]);
 
   useEffect(() => {
     const timer = setTimeout(() => setShine(false), 2000);
@@ -22,7 +24,11 @@ const HelpButton: React.FC<HelpButtonProps> = ({ handleCommand }) => {
     setTheme(newTheme);
   };
 
-  const pages = ['home', 'aboutme', 'projects', 'testimonies', 'education', 'contact'];
+  const pages = useMemo(() => {
+    const pageKeys = ['home', 'aboutme', 'projects', 'testimonies', 'education', 'contact'];
+    const translatedPages = translations.commands[language] || translations.commands.en;
+    return pageKeys.map(key => translatedPages[key]);
+  }, [language, translations]);
 
   return (
     <div className="relative">
@@ -32,30 +38,32 @@ const HelpButton: React.FC<HelpButtonProps> = ({ handleCommand }) => {
         onMouseLeave={() => setShine(false)}
         className={`cursor-pointer text-main-85 rounded-xl hover:text-main ${shine ? 'shine-effect' : ''}`}
       >
-        [Help]
+        [{t.title}]
       </button>
       {isOpen && (
         <div className="absolute bottom-full right-0 mb-2 w-56 bg-cline rounded-xl p-4 opacity-95">
           <div className="flex justify-between items-center mb-2">
-            <span className="font-bold">Theme:</span>
+            <span className="font-bold">{t.theme}:</span>
             <button onClick={toggleTheme} className="text-main-85 hover:text-main">
-              {theme === 'light' ? 'Dark' : 'Light'}
+              {theme === 'light' ? t.dark : t.light}
             </button>
           </div>
-          <div className="relative group flex justify-between items-center">
-            <span className="font-bold">Language:</span>
-            <span className="cursor-pointer text-main-85">{language.toUpperCase()}</span>
-            <div className="absolute top-0 -left-32 w-28 bg-cline rounded-xl p-2 opacity-95 group-hover:block hidden">
+          <div className="relative group">
+            <div className="flex justify-between items-center">
+              <span className="font-bold">{t.language}:</span>
+              <span className="cursor-pointer text-main-85">{language.toUpperCase()}</span>
+            </div>
+            <div className="absolute top-full left-0 mt-1 w-full bg-background rounded-xl p-2 opacity-95 group-hover:block hidden">
               <button onClick={() => setLanguage('en')} className="block w-full text-left text-main-85 hover:text-main">
-                English
+                {t.english}
               </button>
               <button onClick={() => setLanguage('es')} className="block w-full text-left text-main-85 hover:text-main">
-                Spanish
+                {t.spanish}
               </button>
             </div>
           </div>
           <div className="mt-4">
-            <span className="font-bold">Navigation:</span>
+            <span className="font-bold">{t.navigation}:</span>
             {pages.map(page => (
               <button
                 key={page}
