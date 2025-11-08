@@ -29,6 +29,8 @@ const PageContent: React.FC<PageContentProps> = ({ currentPage, homeContent }) =
         return <Education />;
       case 'contact':
         return <Contact />;
+      case 'empty':
+        return null;
       default:
         return null;
     }

@@ -1,4 +1,4 @@
-export type CommandKey = "themeLight" | "themeDark" | "langEs" | "langEn" | "help" | "home" | "aboutme" | "projects" | "testimonies" | "education" | "contact" | "clear";
+export type CommandKey = "themeLight" | "themeDark" | "langEs" | "langEn" | "help" | "home" | "aboutme" | "projects" | "testimonies" | "education" | "contact" | "clear" | "empty";
 
 interface CommandHelp {
   [key: string]: {
@@ -66,6 +66,10 @@ const commandHelp: CommandHelp = {
   "clear": {
     en: "Clears the terminal output.",
     es: "Limpia la salida de la terminal.",
+  },
+  "empty": {
+    en: "Shows an empty page.",
+    es: "Muestra una página vacía.",
   },
 };
 

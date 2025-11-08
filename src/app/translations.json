@@ -163,7 +163,8 @@
       "themeLight": "theme light",
       "themeDark": "theme dark",
       "langEs": "lang es",
-      "langEn": "lang en"
+      "langEn": "lang en",
+      "empty": "empty"
     },
     "es": {
       "help": "ayuda",
@@ -177,7 +178,8 @@
       "themeLight": "tema claro",
       "themeDark": "tema oscuro",
       "langEs": "idioma es",
-      "langEn": "idioma en"
+      "langEn": "idioma en",
+      "empty": "vacio"
     }
   }
 }

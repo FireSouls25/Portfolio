@@ -135,6 +135,10 @@ export default function Home() {
         setCurrentPage('contact');
         setOutput([]);
         break;
+      case 'empty':
+        setCurrentPage('empty');
+        setOutput([]);
+        break;
       default: {
         const suggestions = getCommandSuggestions(cmd, translations, language);
         if (suggestions.length > 0) {
