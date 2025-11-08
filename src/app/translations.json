@@ -5,7 +5,7 @@
       "name": "David Emmanuel Castillo Florez",
       "help": "Type 'help' or press F1 for available commands",
       "navigate": "Navigate through the pages with:",
-      "pages": ["AboutMe", "Projects", "Testimonies", "Education", "Contact"],
+      "pages": ["About me", "Projects", "Testimonies", "Education", "Contact"],
       "commandError": "command not found:",
       "typeHere": "type here! ...",
       "didYouMean": "Did you mean:",
