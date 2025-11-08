@@ -13,10 +13,10 @@
 
 .light {
     --background: #FFFFFF;
-    --foreground: #146d00;
-    --main: hsl(120, 100%, 30%);
-    --submain: hsla(120, 100%, 23%, 0.85);
-    --submain-70: hsla(120, 100%, 29%, 0.85);
+    --foreground: #212121;
+    --main: hsl(0, 0%, 15%);
+    --submain: hsla(0, 0%, 11%, 0.85);
+    --submain-70: hsla(0, 0%, 20%, 0.85);
     --card: #a0a0a0;
     --cline: #c5c5c5;
     --tint: #e9e9e9;
