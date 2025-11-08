@@ -74,6 +74,7 @@ export default function Home() {
   const commandMap = useMemo(() => getCommandMap(translations), [translations]);
 
   const handleCommand = (cmd: string) => {
+    console.log('Processing command:', cmd);
     if (cmd.trim() !== '') {
       setCommandHistory(prev => [...prev, cmd]);
     }
@@ -86,10 +87,20 @@ export default function Home() {
       case 'theme light':
         setTheme('light');
         setOutput([]);
+        setCommand('');
+        setError('');
         break;
       case 'theme dark':
         setTheme('dark');
         setOutput([]);
+        setCommand('');
+        setError('');
+        break;
+      case 'theme dark':
+        setTheme('dark');
+        setOutput([]);
+        setCommand('');
+        setError('');
         break;
       case 'lang es':
         setLanguage('es');
