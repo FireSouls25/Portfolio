@@ -94,3 +94,16 @@ export const getCommandMap = (translations: Translations): { [key: string]: stri
   }
   return commandMap;
 };
+
+export const getCommandSuggestions = (input: string, translations: Translations, language: 'en' | 'es'): string[] => {
+  const commands = translations.commands[language];
+  const commandList = Object.values(commands);
+  
+  if (input.trim() === 'lang' || input.trim() === 'idioma') {
+    return language === 'en' ? ['lang en', 'lang es'] : ['idioma en', 'idioma es'];
+  }
+
+  return commandList.filter(cmd => 
+    typeof cmd === 'string' && cmd.toLowerCase().startsWith(input.toLowerCase())
+  );
+};

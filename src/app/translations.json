@@ -7,6 +7,7 @@
       "navigate": "Navigate through the pages with:",
       "pages": ["AboutMe", "Projects", "Testimonies", "Education", "Contact"],
       "commandError": "command not found:",
+      "typeHere": "type here! ...",
       "helpButton": {
         
       }
@@ -17,7 +18,8 @@
       "help": "Escribe 'help' o presiona F1 para ver los comandos disponibles",
       "navigate": "Navega a través de las páginas con:",
       "pages": ["Sobre mi", "Proyectos", "Testimonios", "Educación", "Contacto"],
-      "commandError": "comando no encontrado:"
+      "commandError": "comando no encontrado:",
+      "typeHere": "escribe aquí! ..."
     }
   },
   "helpButton": {

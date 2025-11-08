@@ -5,7 +5,7 @@ import FaultyTerminal from './components/FaultyTerminal';
 import { useThemeLanguage } from './context/ThemeLanguageContext';
 import { useMediaQuery } from '@/app/hooks/useMediaQuery';
 import ImagePreloader from './components/ImagePreloader';
-import { getHelp, getCommandMap } from './commands';
+import { getHelp, getCommandMap, getCommandSuggestions } from './commands';
 import PageContent from './components/home/PageContent';
 import CommandInput from './components/home/CommandInput';
 import OutputDisplay from './components/home/OutputDisplay';
@@ -19,6 +19,8 @@ export default function Home() {
   const [error, setError] = useState<string>('');
   const [currentPage, setCurrentPage] = useState<string>('home');
   const [tint, setTint] = useState('');
+  const [commandHistory, setCommandHistory] = useState<string[]>([]);
+  const [historyIndex, setHistoryIndex] = useState<number>(-1);
   const t = useMemo(() => translations.home[language] || translations.home.en, [language, translations]);
 
   const WelcomeText = useMemo(() => Array.isArray(t.welcome) ? t.welcome : [t.welcome], [t.welcome]);
@@ -72,6 +74,11 @@ export default function Home() {
   const commandMap = useMemo(() => getCommandMap(translations), [translations]);
 
   const handleCommand = (cmd: string) => {
+    if (cmd.trim() !== '') {
+      setCommandHistory(prev => [...prev, cmd]);
+    }
+    setHistoryIndex(commandHistory.length);
+
     const commandToProcess = cmd.trim().toLowerCase().replace(/\s/g, '').normalize('NFD').replace(/[\u0300-\u036F]/g, '');
     const englishCommand = commandMap[commandToProcess];
 
@@ -124,7 +131,12 @@ export default function Home() {
         setOutput([]);
         break;
       default:
-        setError(`${t.commandError} ${cmd}`);
+        const suggestions = getCommandSuggestions(cmd, translations, language);
+        if (suggestions.length > 0) {
+          setError(`Did you mean: ${suggestions.join(', ')}?`);
+        } else {
+          setError(`${t.commandError} ${cmd}`);
+        }
         setOutput([]);
         break;
     }
@@ -132,9 +144,28 @@ export default function Home() {
     setCommand('');
   };
 
-  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    handleCommand(command);
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      if (historyIndex > 0) {
+        const newIndex = historyIndex - 1;
+        setHistoryIndex(newIndex);
+        setCommand(commandHistory[newIndex]);
+      } else if (commandHistory.length > 0) {
+        setHistoryIndex(0);
+        setCommand(commandHistory[0]);
+      }
+    } else if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      if (historyIndex < commandHistory.length - 1) {
+        const newIndex = historyIndex + 1;
+        setHistoryIndex(newIndex);
+        setCommand(commandHistory[newIndex]);
+      } else {
+        setHistoryIndex(commandHistory.length);
+        setCommand('');
+      }
+    }
   };
 
   const faultyTerminalProps = useMemo(() => (theme === 'dark'
@@ -199,7 +230,7 @@ export default function Home() {
           <PageContent currentPage={currentPage} homeContent={homeContent} />
           <div className="mt-auto">
             <OutputDisplay output={output} error={error} />
-            <CommandInput command={command} handleCommand={handleCommand} setCommand={setCommand} />
+            <CommandInput command={command} handleCommand={handleCommand} setCommand={setCommand} handleKeyDown={handleKeyDown} />
           </div>
         </div>
       </div>

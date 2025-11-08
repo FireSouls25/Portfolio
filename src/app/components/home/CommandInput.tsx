@@ -1,5 +1,6 @@
 'use client';
 
+import { useThemeLanguage } from '@/app/context/ThemeLanguageContext';
 import React from 'react';
 import HelpButton from './HelpButton';
 
@@ -7,9 +8,11 @@ interface CommandInputProps {
   command: string;
   handleCommand: (command: string) => void;
   setCommand: (command: string) => void;
+  handleKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void;
 }
 
-const CommandInput: React.FC<CommandInputProps> = ({ command, handleCommand, setCommand }) => {
+const CommandInput: React.FC<CommandInputProps> = ({ command, handleCommand, setCommand, handleKeyDown }) => {
+  const { language, translations } = useThemeLanguage();
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     handleCommand(command);
@@ -24,8 +27,10 @@ const CommandInput: React.FC<CommandInputProps> = ({ command, handleCommand, set
         type="text"
         value={command}
         onChange={(e) => setCommand(e.target.value)}
+        onKeyDown={handleKeyDown}
         className="bg-transparent border-none outline-none w-full ml-2"
         autoFocus
+        placeholder={translations.home[language]?.typeHere}
       />
       <HelpButton handleCommand={handleCommand} />
     </form>
