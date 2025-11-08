@@ -26,14 +26,14 @@ const Contact: React.FC = () => {
           <Image src="/images/contacts/proton-mail-logo.svg" alt="Email" width={24} height={24} className="w-6 h-6 mr-2" />
           <MemoizedTextType text={Email} typingSpeed={30} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} />
         </span>
-        <span className="flex items-center">
+        <a href="https://github.com/FireSouls25" target="_blank" rel="noopener noreferrer" className="flex items-center">
           <Image src="/images/contacts/github-logo.svg" alt="Github" width={24} height={24} className="w-6 h-6 mr-2" />
           <MemoizedTextType text={Github} typingSpeed={30} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} />
-        </span>
-        <span className="flex items-center">
+        </a>
+        <a href="https://www.linkedin.com/in/enmanuel-castillo-a36686391/" target="_blank" rel="noopener noreferrer" className="flex items-center">
           <Image src="/images/contacts/linkedin-logo.svg" alt="LinkedIn" width={24} height={24} className="w-6 h-6 mr-2" />
           <MemoizedTextType text={Linkedin} typingSpeed={30} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} />
-        </span>
+        </a>
 
       </div>
     </div>
