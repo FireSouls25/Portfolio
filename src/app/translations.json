@@ -8,10 +8,7 @@
       "pages": ["About me", "Projects", "Testimonies", "Education", "Contact"],
       "commandError": "command not found:",
       "typeHere": "type here! ...",
-      "didYouMean": "Did you mean:",
-      "helpButton": {
-        
-      }
+      "didYouMean": "Did you mean:"
     },
     "es": {
       "welcome": "Bienvenido a mi Portafolio",
@@ -154,7 +151,7 @@
     "en": {
       "help": "help",
       "home": "home",
-      "aboutme": "aboutme",
+      "aboutme": "about me",
       "projects": "projects",
       "testimonies": "testimonies",
       "education": "education",
@@ -169,7 +166,7 @@
     "es": {
       "help": "ayuda",
       "home": "inicio",
-      "aboutme": "sobremi",
+      "aboutme": "sobre mi",
       "projects": "proyectos",
       "testimonies": "testimonios",
       "education": "educacion",
