@@ -8,6 +8,7 @@ interface HelpButtonProps {
 
 const HelpButton: React.FC<HelpButtonProps> = ({ handleCommand }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isLangOpen, setIsLangOpen] = useState(false);
   const [shine, setShine] = useState(true);
   const { theme, setTheme, language, setLanguage, translations } = useThemeLanguage();
 
@@ -62,19 +63,24 @@ const HelpButton: React.FC<HelpButtonProps> = ({ handleCommand }) => {
           </div>
 
           {/* IDIOMA */}
-          <div className="relative group">
-            <div className="flex justify-between items-center">
+          <div className="relative">
+            <div 
+              className="flex justify-between items-center cursor-pointer"
+              onClick={() => setIsLangOpen(!isLangOpen)}
+            >
               <span className="font-bold">{t.language}:</span>
-              <span className="cursor-pointer text-main-85">{language.toUpperCase()}</span>
+              <span className="text-main-85">{language.toUpperCase()}</span>
             </div>
-            <div className="absolute top-full left-0 mt-1 w-full bg-background rounded-xl p-2 opacity-95 group-hover:block hidden">
-              <button onClick={() => setLanguage('en')} className="block w-full text-left text-main-85 hover:text-main">
-                {t.english}
-              </button>
-              <button onClick={() => setLanguage('es')} className="block w-full text-left text-main-85 hover:text-main">
-                {t.spanish}
-              </button>
-            </div>
+            {isLangOpen && (
+              <div className="absolute top-full left-0 mt-1 w-full bg-background rounded-xl p-2 opacity-95">
+                <button onClick={() => {setLanguage('en'); setIsLangOpen(false);}} className="block w-full text-left text-main-85 hover:text-main">
+                  {t.english}
+                </button>
+                <button onClick={() => {setLanguage('es'); setIsLangOpen(false);}} className="block w-full text-left text-main-85 hover:text-main">
+                  {t.spanish}
+                </button>
+              </div>
+            )}
           </div>
 
           {/* NAVEGACIÓN */}
