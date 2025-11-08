@@ -103,7 +103,7 @@ export const getCommandSuggestions = (input: string, translations: Translations,
     return language === 'en' ? ['lang en', 'lang es'] : ['idioma en', 'idioma es'];
   }
 
-  return commandList.filter(cmd => 
+  return commandList.filter((cmd): cmd is string => 
     typeof cmd === 'string' && cmd.toLowerCase().startsWith(input.toLowerCase())
   );
 };
