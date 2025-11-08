@@ -5,7 +5,7 @@ import FaultyTerminal from './components/FaultyTerminal';
 import { useThemeLanguage } from './context/ThemeLanguageContext';
 import { useMediaQuery } from '@/app/hooks/useMediaQuery';
 import ImagePreloader from './components/ImagePreloader';
-import { getHelp, getCommandMap, getCommandSuggestions } from './commands';
+import { getCommandMap, getCommandSuggestions } from './commands';
 import PageContent from './components/home/PageContent';
 import CommandInput from './components/home/CommandInput';
 import OutputDisplay from './components/home/OutputDisplay';
@@ -18,6 +18,7 @@ export default function Home() {
   const [output, setOutput] = useState<string[]>([]);
   const [error, setError] = useState<string>('');
   const [currentPage, setCurrentPage] = useState<string>('home');
+  const [previousPage, setPreviousPage] = useState<string>('home');
   const [tint, setTint] = useState('');
   const [commandHistory, setCommandHistory] = useState<string[]>([]);
   const [historyIndex, setHistoryIndex] = useState<number>(-1);
@@ -60,7 +61,13 @@ export default function Home() {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'F1') {
         event.preventDefault();
-        setOutput(prevOutput => (prevOutput.length > 0 ? [] : getHelp(language, translations)));
+        if (currentPage === 'help') {
+          setCurrentPage(previousPage);
+        } else {
+          setPreviousPage(currentPage);
+          setCurrentPage('help');
+        }
+        setOutput([]);
       }
     };
 
@@ -69,7 +76,7 @@ export default function Home() {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [language, translations]);
+  }, [currentPage, previousPage]); // Added currentPage and previousPage to dependencies
 
   const commandMap = useMemo(() => getCommandMap(translations), [translations]);
 
@@ -105,7 +112,13 @@ export default function Home() {
         setOutput([]);
         break;
       case 'help':
-        setOutput(getHelp(language, translations));
+        if (currentPage === 'help') {
+          setCurrentPage(previousPage);
+        } else {
+          setPreviousPage(currentPage);
+          setCurrentPage('help');
+        }
+        setOutput([]);
         break;
       case 'clear':
         setOutput([]);
@@ -237,9 +250,11 @@ export default function Home() {
           ), [isMobile, faultyTerminalProps])}
         </div>
         <div className={`w-full h-full flex flex-col text-left p-8 relative z-10 ${isMobile ? 'p-4' : 'p-12'}`}>
-          <PageContent currentPage={currentPage} homeContent={homeContent} />
-          <div className="mt-auto">
+          <div className="flex-grow overflow-y-auto">
+            <PageContent currentPage={currentPage} homeContent={homeContent} />
             <OutputDisplay output={output} error={error} />
+          </div>
+          <div>
             <CommandInput command={command} handleCommand={handleCommand} setCommand={setCommand} handleKeyDown={handleKeyDown} />
           </div>
         </div>

@@ -8,6 +8,7 @@ const Projects = lazy(() => import('../../pages/Projects'));
 const Testimonies = lazy(() => import('../../pages/Testimonies'));
 const Education = lazy(() => import('../../pages/Education'));
 const Contact = lazy(() => import('../../pages/Contact'));
+const HelpPage = lazy(() => import('../../pages/HelpPage'));
 
 interface PageContentProps {
   currentPage: string;
@@ -31,6 +32,8 @@ const PageContent: React.FC<PageContentProps> = ({ currentPage, homeContent }) =
         return <Contact />;
       case 'empty':
         return null;
+      case 'help':
+        return <HelpPage />;
       default:
         return null;
     }
@@ -38,7 +41,7 @@ const PageContent: React.FC<PageContentProps> = ({ currentPage, homeContent }) =
 
   return (
     <Suspense fallback={<Loader />}>
-      <div className="flex-grow overflow-y-auto">
+      <div>
         {renderPage()}
       </div>
     </Suspense>
