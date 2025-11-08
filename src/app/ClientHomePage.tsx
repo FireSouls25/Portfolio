@@ -130,7 +130,7 @@ export default function Home() {
         setCurrentPage('contact');
         setOutput([]);
         break;
-      default:
+      default: {
         const suggestions = getCommandSuggestions(cmd, translations, language);
         if (suggestions.length > 0) {
           setError(`${t.didYouMean} ${suggestions.join(', ')}?`);
@@ -139,6 +139,7 @@ export default function Home() {
         }
         setOutput([]);
         break;
+      }
     }
     
     setCommand('');

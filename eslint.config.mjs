@@ -4,6 +4,9 @@ import ts from 'typescript-eslint';
 import react from 'eslint-plugin-react';
 
 export default [
+  {
+    ignores: ['.next'],
+  },
   js.configs.recommended,
   ...ts.configs.recommended,
   react.configs.flat.recommended,
@@ -20,6 +23,8 @@ export default [
   {
     rules: {
       "@typescript-eslint/no-explicit-any": "off",
+      "react/react-in-jsx-scope": "off",
+      "react/prop-types": "off",
     },
   },
 ];
