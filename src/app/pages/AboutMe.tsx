@@ -61,7 +61,7 @@ const AboutMe: React.FC = () => {
             />
           </span>
         </div>
-        <span className="flex text-[32px] items-center p-2 bg-cline rounded-xl opacity-85">
+        <span className="flex text-[20px] md:text-[32px] items-center p-2 bg-cline rounded-xl opacity-85">
           <a href={cvPath} target="_blank" rel="noopener noreferrer" className="flex items-center">
             <Image src="/images/contacts/download-logo.svg" alt="Download CV" width={24} height={24} className="w-6 h-6 mr-2" />
             <MemoizedTextType text={Cv} typingSpeed={30} pauseDuration={2000} showCursor={false} textColors={['var(--main)']}/>
