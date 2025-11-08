@@ -8,6 +8,7 @@
       "pages": ["AboutMe", "Projects", "Testimonies", "Education", "Contact"],
       "commandError": "command not found:",
       "typeHere": "type here! ...",
+      "didYouMean": "Did you mean:",
       "helpButton": {
         
       }
@@ -19,7 +20,8 @@
       "navigate": "Navega a través de las páginas con:",
       "pages": ["Sobre mi", "Proyectos", "Testimonios", "Educación", "Contacto"],
       "commandError": "comando no encontrado:",
-      "typeHere": "escribe aquí! ..."
+      "typeHere": "escribe aquí! ...",
+      "didYouMean": "Quisiste decir:"
     }
   },
   "helpButton": {

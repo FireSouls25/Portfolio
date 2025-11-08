@@ -133,7 +133,7 @@ export default function Home() {
       default:
         const suggestions = getCommandSuggestions(cmd, translations, language);
         if (suggestions.length > 0) {
-          setError(`Did you mean: ${suggestions.join(', ')}?`);
+          setError(`${t.didYouMean} ${suggestions.join(', ')}?`);
         } else {
           setError(`${t.commandError} ${cmd}`);
         }
