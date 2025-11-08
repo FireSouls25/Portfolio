@@ -22,10 +22,10 @@ const Contact: React.FC = () => {
         <MemoizedTextType text={Title} typingSpeed={40} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} />
       </h1>
       <div className="flex flex-col space-y-4 text-[20px] md:text-[32px]">
-        <span className="flex items-center">
+        <a href="mailto:da.enmanuel@proton.me" className="flex items-center">
           <Image src="/images/contacts/proton-mail-logo.svg" alt="Email" width={24} height={24} className="w-6 h-6 mr-2" />
           <MemoizedTextType text={Email} typingSpeed={30} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} />
-        </span>
+        </a>
         <a href="https://github.com/FireSouls25" target="_blank" rel="noopener noreferrer" className="flex items-center">
           <Image src="/images/contacts/github-logo.svg" alt="Github" width={24} height={24} className="w-6 h-6 mr-2" />
           <MemoizedTextType text={Github} typingSpeed={30} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} />
