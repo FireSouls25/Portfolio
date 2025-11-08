@@ -12,6 +12,12 @@ export default [
   react.configs.flat.recommended,
 
   {
+    files: ['next-env.d.ts'],
+    rules: {
+      "@typescript-eslint/triple-slash-reference": "off",
+    },
+  },
+  {
     files: ['**/*.{ts,tsx}'],
     languageOptions: {
       parserOptions: {

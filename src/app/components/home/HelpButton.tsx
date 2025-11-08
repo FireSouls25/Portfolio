@@ -57,7 +57,7 @@ const HelpButton: React.FC<HelpButtonProps> = ({ handleCommand }) => {
           {/* TEMA */}
           <div className="flex justify-between items-center mb-2">
             <span className="font-bold">{t.theme}:</span>
-            <button onClick={toggleTheme} className="text-main-85 hover:text-main">
+            <button onClick={() => {toggleTheme(); setIsOpen(false);}} className="text-main-85 hover:text-main">
               {theme === 'light' ? t.dark : t.light}
             </button>
           </div>
@@ -73,10 +73,10 @@ const HelpButton: React.FC<HelpButtonProps> = ({ handleCommand }) => {
             </div>
             {isLangOpen && (
               <div className="absolute top-full left-0 mt-1 w-full bg-background rounded-xl p-2 opacity-95">
-                <button onClick={() => {setLanguage('en'); setIsLangOpen(false);}} className="block w-full text-left text-main-85 hover:text-main">
+                <button onClick={() => {setLanguage('en'); setIsLangOpen(false); setIsOpen(false);}} className="block w-full text-left text-main-85 hover:text-main">
                   {t.english}
                 </button>
-                <button onClick={() => {setLanguage('es'); setIsLangOpen(false);}} className="block w-full text-left text-main-85 hover:text-main">
+                <button onClick={() => {setLanguage('es'); setIsLangOpen(false); setIsOpen(false);}} className="block w-full text-left text-main-85 hover:text-main">
                   {t.spanish}
                 </button>
               </div>
