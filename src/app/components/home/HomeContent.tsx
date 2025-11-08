@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useMemo } from 'react';
 import { MemoizedTextType } from '../MemoizedTextType';
 
 interface HomeContentProps {
@@ -10,6 +10,25 @@ interface HomeContentProps {
   navigateText: string[];
   pages: string[];
 }
+
+const PageLink: React.FC<{ page: string }> = React.memo(({ page }) => {
+  const pageText = useMemo(() => [page], [page]);
+  return (
+    <li className="mb-2">
+      <a href="#" className="hover:underline">
+        <MemoizedTextType
+          text={pageText}
+          typingSpeed={20}
+          pauseDuration={2000}
+          showCursor={false}
+          initialDelay={2200}
+          textColors={['var(--submain-70)']}
+        />
+      </a>
+    </li>
+  );
+});
+PageLink.displayName = 'PageLink';
 
 const HomeContent: React.FC<HomeContentProps> = ({ welcomeText, nameText, helpText, navigateText, pages }) => {
   return (
@@ -54,20 +73,9 @@ const HomeContent: React.FC<HomeContentProps> = ({ welcomeText, nameText, helpTe
         />
       </h3>
       <ul className="list-none text-[20px] md:text-[32px] mb-6">
-        {pages.map((page: string) => ((
-          <li key={page} className="mb-2">
-            <a href="#" className="hover:underline">
-              <MemoizedTextType
-                text={[page]}
-                typingSpeed={20}
-                pauseDuration={2000}
-                showCursor={false}
-                initialDelay={2200}
-                textColors={['var(--submain-70)']}
-              />
-            </a>
-          </li>
-        )))}
+        {pages.map((page: string) => (
+          <PageLink key={page} page={page} />
+        ))}
       </ul>
     </div>
   );
