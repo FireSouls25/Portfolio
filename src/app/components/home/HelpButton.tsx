@@ -10,7 +10,7 @@ const HelpButton: React.FC<HelpButtonProps> = ({ handleCommand }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isLangOpen, setIsLangOpen] = useState(false);
   const [shine, setShine] = useState(true);
-  const { theme, setTheme, language, setLanguage, translations } = useThemeLanguage();
+    const { theme, language, setLanguage, translations } = useThemeLanguage();
 
   // HELP BUTTON TEXTS
   const t = (translations.helpButton[language] ?? translations.helpButton.en) as {
@@ -38,7 +38,13 @@ const HelpButton: React.FC<HelpButtonProps> = ({ handleCommand }) => {
     return () => clearTimeout(timer);
   }, []);
 
-  const toggleTheme = () => setTheme(theme === 'light' ? 'dark' : 'light');
+  const toggleTheme = () => {
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    const command = newTheme === 'dark' 
+      ? (translations.commands[language]?.themeDark ?? translations.commands.en.themeDark) 
+      : (translations.commands[language]?.themeLight ?? translations.commands.en.themeLight);
+    handleCommand(String(command));
+  };
 
   return (
     <div className="relative">
@@ -57,7 +63,7 @@ const HelpButton: React.FC<HelpButtonProps> = ({ handleCommand }) => {
           {/* TEMA */}
           <div className="flex justify-between items-center mb-2">
             <span className="font-bold">{t.theme}:</span>
-            <button onClick={toggleTheme} className="text-main-85 hover:text-main">
+            <button onClick={() => { toggleTheme(); setIsOpen(false); }} className="text-main-85 hover:text-main">
               {theme === 'light' ? t.dark : t.light}
             </button>
           </div>

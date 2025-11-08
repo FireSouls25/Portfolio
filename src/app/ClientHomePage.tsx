@@ -96,12 +96,6 @@ export default function Home() {
         setCommand('');
         setError('');
         break;
-      case 'theme dark':
-        setTheme('dark');
-        setOutput([]);
-        setCommand('');
-        setError('');
-        break;
       case 'lang es':
         setLanguage('es');
         setOutput([]);
