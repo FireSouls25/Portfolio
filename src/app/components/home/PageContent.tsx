@@ -8,7 +8,7 @@ const Projects = lazy(() => import('../../pages/Projects'));
 const Testimonies = lazy(() => import('../../pages/Testimonies'));
 const Education = lazy(() => import('../../pages/Education'));
 const Contact = lazy(() => import('../../pages/Contact'));
-const HelpPage = lazy(() => import('../../pages/HelpPage'));
+import HelpPage from '../../pages/HelpPage';
 
 interface PageContentProps {
   currentPage: string;
