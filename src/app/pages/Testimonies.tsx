@@ -41,20 +41,12 @@ const Testimonies: React.FC = () => {
             <MemoizedTextType text={Author2} typingSpeed={20} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} initialDelay={2500}/>
           </span>
         </div>
-        <div>
+        <div className=''> 
           <span className="text-[20px] md:text-[32px] mb-4">
             <MemoizedTextType text={Testimony3} typingSpeed={10} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} initialDelay={2200}/>
           </span>
           <span className="text-[20px] md:text-[32px] mb-4 text-main-70">
             <MemoizedTextType text={Author3} typingSpeed={20} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} initialDelay={3800}/>
-          </span>
-        </div>
-        <div>
-          <span className="text-[20px] md:text-[32px] mb-4">
-            <MemoizedTextType text={Testimony4} typingSpeed={10} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} initialDelay={3200}/>
-          </span>
-          <span className="text-[20px] md:text-[32px] mb-4 text-main-70">
-            <MemoizedTextType text={Author4} typingSpeed={20} pauseDuration={2000} showCursor={false} textColors={['var(--main)']} initialDelay={4200}/>
           </span>
         </div>
       </div>

@@ -107,25 +107,21 @@
   "testimonies": {
     "en": {
       "title": "Testimonies",
-      "testimony1": "Fusce sit amet tortor quis erat dapibus viverra. Mauris congue tempor lorem, vel tristique orci egestas ac.",
-      "author1": "- tal",
-      "testimony2": "Nunc et lacus ut nisl blandit sodales in ut diam. Etiam lobortis, orci ut semper cursus, diam tortor molestie dolor.",
-      "author2": "- tal.2",
+      "testimony1": "I, Jhoan Javier Bastidas Cárdenas, attest to the outstanding programming expertise of Mr. David Enmanuel Castillo Flores. His technical mastery shines through tools like “3D Function Grapher,” which my peers and I have frequently used in “Calculus III,” outperforming well-known applications such as GeoGebra in precision and practicality. I am grateful for his ability to craft innovative solutions and eagerly await new tools of equal or greater quality, confident in their value to the student community.",
+      "author1": "- Jhoan Javier Bastidas",
+      "testimony2": "I, Kevin Santiago Montero Narváez, testify to the programming skills of Mr. Enmanuel Castillo Flores, particularly his efficiency in designing precise and automated solutions. I have tested creations such as his application for graphing 3D functions from two-variable expressions, computing partial derivatives and integrals, which showcases his technical expertise and passion for practical tools. Projects like these highlight his commitment to high-impact programming.",
+      "author2": "- Kevin Santiago Montero Narváez",
       "testimony3": "Vestibulum ut luctus augue. Sed orci enim, venenatis at dui vitae, dictum venenatis nisi. Vestibulum facilisis felis purus.",
-      "author3": "- tal.3",
-      "testimony4": "Donec viverra risus eu ex rutrum, in lobortis ex faucibus. Suspendisse at pharetra mauris.",
-      "author4": "- tal.4"
+      "author3": "- tal.3"
     },
     "es": {
       "title": "Testimonios",
-      "testimony1": "Fusce sit amet tortor quis erat dapibus viverra. Mauris congue tempor lorem, vel tristique orci egestas ac.",
-      "author1": "- tal",
-      "testimony2": "Nunc et lacus ut nisl blandit sodales in ut diam. Etiam lobortis, orci ut semper cursus, diam tortor molestie dolor.",
-      "author2": "- tal.2",
+      "testimony1": "Yo, Jhoan Javier Bastidas Cárdenas, doy fe de la absoluta competencia del señor David Enmanuel Castillo Flores en el ámbito de la programación. Su dominio técnico se evidencia en herramientas como “Graficador de funciones 3D”, que hemos utilizado frecuentemente en “Cálculo III” junto a mis allegados, superando incluso a aplicaciones conocidas como GeoGebra por su precisión y utilidad práctica. Agradezco su habilidad para crear soluciones innovadoras y espero nuevas herramientas de igual o superior calidad, convencido de su gran beneficio para la comunidad estudiantil.",
+      "author1": "- Jhoan Javier Bastidas",
+      "testimony2": "Yo, Kevin Santiago Montero Narváez, doy testimonio de las habilidades del señor Enmanuel Castillo Flores en el campo de la programación, destacando su eficiencia en el diseño de soluciones precisas y automáticas. He probado creaciones como su aplicación para graficar funciones en 3D a partir de expresiones con dos variables, calcular derivadas parciales e integrales, lo que refleja su dominio técnico y pasión por herramientas prácticas. Este tipo de proyectos subraya su compromiso con la programación de alto impacto.",
+      "author2": "- Kevin Santiago Montero Narváez",
       "testimony3": "Vestibulum ut luctus augue. Sed orci enim, venenatis at dui vitae, dictum venenatis nisi. Vestibulum facilisis felis purus.",
-      "author3": "- tal.3",
-      "testimony4": "Donec viverra risus eu ex rutrum, in lobortis ex faucibus. Suspendisse at pharetra mauris.",
-      "author4": "- tal.4"
+      "author3": "- tal.3"
     }
   },
   "education": {
