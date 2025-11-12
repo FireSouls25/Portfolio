@@ -79,10 +79,10 @@ const HelpButton: React.FC<HelpButtonProps> = ({ handleCommand }) => {
             </div>
             {isLangOpen && (
               <div className="absolute top-full left-0 mt-1 w-full bg-background rounded-xl p-2 opacity-95">
-                <button onClick={() => {setLanguage('en'); setIsLangOpen(false);}} className="block w-full text-left text-main-85 hover:text-main">
+                <button onClick={() => {setLanguage('en'); setIsLangOpen(false); setIsOpen(false);}} className="block w-full text-left text-main-85 hover:text-main">
                   {t.english}
                 </button>
-                <button onClick={() => {setLanguage('es'); setIsLangOpen(false);}} className="block w-full text-left text-main-85 hover:text-main">
+                <button onClick={() => {setLanguage('es'); setIsLangOpen(false); setIsOpen(false);}} className="block w-full text-left text-main-85 hover:text-main">
                   {t.spanish}
                 </button>
               </div>
