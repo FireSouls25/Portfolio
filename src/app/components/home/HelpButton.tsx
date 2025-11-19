@@ -31,6 +31,7 @@ const HelpButton: React.FC<HelpButtonProps> = ({ handleCommand }) => {
   String(translations.commands[language]?.testimonies ?? translations.commands.en.testimonies ?? "Testimonies"),
   String(translations.commands[language]?.education   ?? translations.commands.en.education   ?? "Education"),
   String(translations.commands[language]?.contact     ?? translations.commands.en.contact     ?? "Contact"),
+  String(translations.commands[language]?.footer      ?? translations.commands.en.footer      ?? "Footer"),
 ];
 
   useEffect(() => {

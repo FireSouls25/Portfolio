@@ -5,7 +5,7 @@
       "name": "David Emmanuel Castillo Florez",
       "help": "Type 'help' or press F1 for available commands",
       "navigate": "Navigate through the pages with:",
-      "pages": ["About me", "Projects", "Testimonies", "Education", "Contact"],
+      "pages": ["About me", "Projects", "Testimonies", "Education", "Contact", "Footer"],
       "commandError": "command not found:",
       "typeHere": "type here! ...",
       "didYouMean": "Did you mean:"
@@ -15,7 +15,7 @@
       "name": "David Emmanuel Castillo Florez",
       "help": "Escribe 'help' o presiona F1 para ver los comandos disponibles",
       "navigate": "Navega a través de las páginas con:",
-      "pages": ["Sobre mi", "Proyectos", "Testimonios", "Educación", "Contacto"],
+      "pages": ["Sobre mi", "Proyectos", "Testimonios", "Educación", "Contacto", "Footer"],
       "commandError": "comando no encontrado:",
       "typeHere": "escribe aquí! ...",
       "didYouMean": "Quisiste decir:"
@@ -147,6 +147,18 @@
       "linkedin": "LinkedIn: Enmanuel Castillo"
     }
   },
+  "footer": {
+    "en": {
+      "title": "Footer",
+      "license": "Copyright (c) 2025 FireSouls25",
+      "author": "Created by David Emmanuel Castillo Florez"
+    },
+    "es": {
+      "title": "Pie de página",
+      "license": "Copyright (c) 2025 FireSouls25.",
+      "author": "Creado por David Emmanuel Castillo Florez"
+    }
+  },
   "commands": {
     "en": {
       "help": "help",
@@ -161,7 +173,8 @@
       "themeDark": "theme dark",
       "langEs": "lang es",
       "langEn": "lang en",
-      "empty": "empty"
+      "empty": "empty",
+      "footer": "footer"
     },
     "es": {
       "help": "ayuda",
@@ -176,7 +189,8 @@
       "themeDark": "tema oscuro",
       "langEs": "idioma es",
       "langEn": "idioma en",
-      "empty": "vacio"
+      "empty": "vacio",
+      "footer": "footer"
     }
   }
 }

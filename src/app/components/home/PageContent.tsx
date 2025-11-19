@@ -9,6 +9,7 @@ const Testimonies = lazy(() => import('../../pages/Testimonies'));
 const Education = lazy(() => import('../../pages/Education'));
 const Contact = lazy(() => import('../../pages/Contact'));
 import HelpPage from '../../pages/HelpPage';
+const Footer = lazy(() => import('../../pages/Footer'));
 
 interface PageContentProps {
   currentPage: string;
@@ -34,6 +35,8 @@ const PageContent: React.FC<PageContentProps> = ({ currentPage, homeContent }) =
         return null;
       case 'help':
         return <HelpPage />;
+      case 'footer':
+        return <Footer />;
       default:
         return null;
     }

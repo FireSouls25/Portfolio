@@ -152,6 +152,10 @@ export default function Home() {
         setCurrentPage('empty');
         setOutput([]);
         break;
+      case 'footer':
+        setCurrentPage('footer');
+        setOutput([]);
+        break;
       default: {
         const suggestions = getCommandSuggestions(cmd, translations, language);
         if (suggestions.length > 0) {

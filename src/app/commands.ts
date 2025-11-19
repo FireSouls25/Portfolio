@@ -1,4 +1,4 @@
-export type CommandKey = "themeLight" | "themeDark" | "langEs" | "langEn" | "help" | "home" | "aboutme" | "projects" | "testimonies" | "education" | "contact" | "clear" | "empty";
+export type CommandKey = "themeLight" | "themeDark" | "langEs" | "langEn" | "help" | "home" | "aboutme" | "projects" | "testimonies" | "education" | "contact" | "clear" | "empty" | "footer";
 
 interface CommandHelp {
   [key: string]: {
@@ -70,6 +70,10 @@ const commandHelp: CommandHelp = {
   "empty": {
     en: "Shows an empty page.",
     es: "Muestra una página vacía.",
+  },
+  "footer": {
+    en: "Shows the footer.",
+    es: "Muestra el pie de página.",
   },
 };
 
